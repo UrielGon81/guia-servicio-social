@@ -1,0 +1,39 @@
+<section class="chatbot-section">
+
+  <h1>
+    Chatbot Inteligente
+  </h1>
+
+  <p>
+    Realiza preguntas sobre tu servicio social.
+  </p>
+
+  <div class="chat-container">
+
+    <input
+      type="text"
+
+      [(ngModel)]="pregunta"
+
+      placeholder="Escribe tu pregunta..."
+    >
+
+    <button (click)="responder()">
+
+      Preguntar
+
+    </button>
+
+    <div
+      class="respuesta"
+
+      *ngIf="respuesta"
+    >
+
+      {{ respuesta }}
+
+    </div>
+
+  </div>
+
+</section>

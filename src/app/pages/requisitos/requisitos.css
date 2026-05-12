@@ -1,0 +1,121 @@
+.requisitos-section {
+
+  min-height: 100vh;
+
+  padding: 120px 40px;
+
+  background: #f5f5f5;
+
+}
+
+.requisitos-section h1 {
+
+  text-align: center;
+
+  font-size: 4rem;
+
+  margin-bottom: 20px;
+
+}
+
+.intro {
+
+  text-align: center;
+
+  font-size: 1.3rem;
+
+  margin-bottom: 60px;
+
+}
+
+.campo-card {
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 30px;
+
+  background: white;
+
+  margin-bottom: 40px;
+
+  border-radius: 25px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+
+  transition: .3s;
+
+}
+
+.campo-card:hover {
+
+  transform: translateY(-10px);
+
+}
+
+.campo-card img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+.info {
+
+  padding: 40px;
+
+}
+
+.info h2 {
+
+  margin-bottom: 20px;
+
+  color: #2E7D32;
+
+}
+
+.info p {
+
+  font-size: 1.1rem;
+
+  margin-bottom: 20px;
+
+}
+
+.ejemplo {
+
+  background: #E8F5E9;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+
+}
+
+.error {
+
+  background: #FFEBEE;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .campo-card {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}

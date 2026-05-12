@@ -1,0 +1,115 @@
+.chatbot-section {
+
+  min-height: 100vh;
+
+  padding: 120px 20px;
+
+  background: linear-gradient(
+    135deg,
+    #2E7D32,
+    #1B5E20
+  );
+
+  color: white;
+
+  text-align: center;
+
+}
+
+.chatbot-section h1 {
+
+  font-size: 4rem;
+
+  margin-bottom: 20px;
+
+}
+
+.chat-container {
+
+  max-width: 700px;
+
+  margin: auto;
+
+  margin-top: 50px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+}
+
+input {
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  font-size: 1.2rem;
+
+}
+
+button {
+
+  padding: 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #C9A227;
+
+  color: white;
+
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  transition: .3s;
+
+}
+
+button:hover {
+
+  transform: scale(1.05);
+
+}
+
+.respuesta {
+
+  background: white;
+
+  color: black;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  margin-top: 20px;
+
+  animation: aparecer .5s ease;
+
+}
+
+@keyframes aparecer {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
+
+}

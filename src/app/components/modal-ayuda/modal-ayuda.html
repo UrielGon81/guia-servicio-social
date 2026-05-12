@@ -1,0 +1,27 @@
+<div class="modal-container">
+
+  <img
+    [src]="data.imagen"
+  >
+
+  <h1>
+    {{ data.titulo }}
+  </h1>
+
+  <p>
+    {{ data.descripcion }}
+  </p>
+
+  <ul>
+
+    <li
+      *ngFor="let item of data.lista"
+    >
+
+      {{ item }}
+
+    </li>
+
+  </ul>
+
+</div>

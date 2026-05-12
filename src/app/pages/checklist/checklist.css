@@ -1,0 +1,133 @@
+.checklist-section {
+
+  min-height: 100vh;
+
+  padding: 120px 40px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f5f5f5,
+    #ffffff
+  );
+
+}
+
+.checklist-section h1 {
+
+  text-align: center;
+
+  font-size: 4rem;
+
+  margin-bottom: 20px;
+
+}
+
+.checklist-section p {
+
+  text-align: center;
+
+  font-size: 1.2rem;
+
+  margin-bottom: 50px;
+
+}
+
+.progress-container {
+
+  width: 100%;
+
+  max-width: 900px;
+
+  height: 40px;
+
+  background: #ddd;
+
+  margin: auto;
+
+  border-radius: 50px;
+
+  overflow: hidden;
+
+  margin-bottom: 60px;
+
+}
+
+.progress-bar {
+
+  height: 100%;
+
+  background:
+  linear-gradient(
+    90deg,
+    #2E7D32,
+    #C9A227
+  );
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: white;
+
+  font-weight: bold;
+
+  transition: .5s;
+
+}
+
+.lista {
+
+  max-width: 900px;
+
+  margin: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+}
+
+.item {
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+
+  transition: .3s;
+
+}
+
+.item:hover {
+
+  transform: translateX(10px);
+
+}
+
+.item input {
+
+  width: 25px;
+
+  height: 25px;
+
+}
+
+.item span {
+
+  font-size: 1.2rem;
+
+}

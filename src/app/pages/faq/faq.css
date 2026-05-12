@@ -1,0 +1,27 @@
+.faq-section {
+
+  padding: 120px 40px;
+
+  background: #ffffff;
+
+  min-height: 100vh;
+
+}
+
+.faq-section h1 {
+
+  text-align: center;
+
+  font-size: 3rem;
+
+  margin-bottom: 50px;
+
+}
+
+mat-expansion-panel {
+
+  margin-bottom: 20px;
+
+  border-radius: 10px !important;
+
+}

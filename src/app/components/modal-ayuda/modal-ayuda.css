@@ -1,0 +1,41 @@
+.modal-container {
+
+  padding: 30px;
+
+}
+
+.modal-container img {
+
+  width: 100%;
+
+  height: 350px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  margin-bottom: 20px;
+
+}
+
+.modal-container h1 {
+
+  font-size: 2rem;
+
+  margin-bottom: 20px;
+
+}
+
+.modal-container p {
+
+  font-size: 1.1rem;
+
+  margin-bottom: 20px;
+
+}
+
+.modal-container li {
+
+  margin-bottom: 10px;
+
+}
