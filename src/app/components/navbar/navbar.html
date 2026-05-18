@@ -1,8 +1,70 @@
 <mat-toolbar>
 
-  <span>Servicio Social</span>
+  <span class="logo">
+
+    Servicio Social
+
+  </span>
 
   <span class="spacer"></span>
+
+  <!-- DESKTOP -->
+
+  <div class="desktop-menu">
+
+    <button mat-button routerLink="/">
+      Inicio
+    </button>
+
+    <button mat-button routerLink="/proceso">
+      Proceso
+    </button>
+
+    <button mat-button routerLink="/requisitos">
+      Requisitos
+    </button>
+
+    <button mat-button routerLink="/faq">
+      FAQ
+    </button>
+
+    <button mat-button routerLink="/checklist">
+      Checklist
+    </button>
+
+    <button mat-button routerLink="/tutorial">
+  Tutorial
+</button>
+
+  </div>
+
+  <!-- MOBILE -->
+
+  <button
+    mat-icon-button
+
+    class="mobile-button"
+
+    (click)="menuAbierto = !menuAbierto"
+  >
+
+    <mat-icon>
+
+      menu
+
+    </mat-icon>
+
+  </button>
+
+</mat-toolbar>
+
+<!-- MOBILE MENU -->
+
+<div
+  class="mobile-menu"
+
+  *ngIf="menuAbierto"
+>
 
   <button mat-button routerLink="/">
     Inicio
@@ -20,11 +82,11 @@
     FAQ
   </button>
 
-  <button mat-button routerLink="/chatbot">
-    Chatbot
+  <button mat-button routerLink="/checklist">
+    Checklist
   </button>
-  
-<button mat-button routerLink="/checklist">
-  Checklist
+  <button mat-button routerLink="/videos">
+  Videos
 </button>
-</mat-toolbar>
+
+</div>

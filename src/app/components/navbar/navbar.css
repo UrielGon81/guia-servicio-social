@@ -6,11 +6,19 @@ mat-toolbar {
 
   z-index: 1000;
 
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.8);
 
   backdrop-filter: blur(10px);
 
   color: white;
+
+}
+
+.logo {
+
+  font-weight: bold;
+
+  font-size: 1.3rem;
 
 }
 
@@ -20,16 +28,66 @@ mat-toolbar {
 
 }
 
+.desktop-menu {
+
+  display: flex;
+
+  gap: 10px;
+
+}
+
 button {
 
   color: white !important;
 
-  font-weight: bold;
+}
+
+.mobile-button {
+
+  display: none;
 
 }
 
-button:hover {
+.mobile-menu {
 
-  color: #C9A227 !important;
+  position: fixed;
+
+  top: 64px;
+
+  width: 100%;
+
+  background: rgba(0,0,0,.95);
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 20px;
+
+  z-index: 999;
+
+}
+
+.mobile-menu button {
+
+  text-align: left;
+
+  margin-bottom: 10px;
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .desktop-menu {
+
+    display: none;
+
+  }
+
+  .mobile-button {
+
+    display: block;
+
+  }
 
 }
