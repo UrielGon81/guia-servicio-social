@@ -1,6 +1,5 @@
 <section
   class="info-section"
-
   data-aos="fade-up"
 >
 
@@ -8,22 +7,25 @@
     ¿Qué podrás hacer aquí?
   </h2>
 
+  <p class="info-subtitle">
+    Plataforma interactiva para ayudarte paso a paso durante todo tu servicio social.
+  </p>
+
   <div class="info-grid">
 
     <!-- CARD 1 -->
 
     <div
       class="info-card"
-
       (click)="abrirModal(
         'Registro SICDE',
-        'El alumno debe registrarse correctamente en el sistema SICDE para iniciar su servicio social.',
+        'Aprende paso a paso cómo registrarte correctamente en el sistema SICDE.',
         'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40',
         [
-          'Registrar datos correctamente',
-          'No usar mayúsculas',
+          'Registrar datos personales',
+          'Seleccionar dependencia',
           'Verificar fechas',
-          'Subir documentos necesarios'
+          'Guardar información'
         ]
       )"
     >
@@ -32,13 +34,17 @@
         src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
       >
 
-      <h3>
-        📋 Registro SICDE
-      </h3>
+      <div class="card-content">
 
-      <p>
-        Aprende paso a paso cómo registrarte correctamente.
-      </p>
+        <h3>
+          📋 Registro SICDE
+        </h3>
+
+        <p>
+          Aprende cómo iniciar correctamente tu servicio social.
+        </p>
+
+      </div>
 
     </div>
 
@@ -46,16 +52,15 @@
 
     <div
       class="info-card"
-
       (click)="abrirModal(
         'Formatos Oficiales',
-        'Conoce y descarga todos los formatos necesarios para realizar correctamente tu trámite.',
+        'Consulta todos los documentos y formatos necesarios.',
         'https://images.unsplash.com/photo-1516321318423-f06f85e504b3',
         [
-          'Formato inscripción',
+          'Carta presentación',
           'Carta aceptación',
-          'Carta término',
-          'Evaluación del prestador'
+          'Formato trimestral',
+          'Carta término'
         ]
       )"
     >
@@ -64,13 +69,17 @@
         src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
       >
 
-      <h3>
-        📄 Formatos Oficiales
-      </h3>
+      <div class="card-content">
 
-      <p>
-        Descarga y conoce los documentos necesarios.
-      </p>
+        <h3>
+          📄 Formatos Oficiales
+        </h3>
+
+        <p>
+          Descarga y conoce los documentos necesarios.
+        </p>
+
+      </div>
 
     </div>
 
@@ -78,16 +87,15 @@
 
     <div
       class="info-card"
-
       (click)="abrirModal(
         'Informes Trimestrales',
-        'El alumno debe registrar actividades y evidencias cada trimestre.',
+        'Aprende cómo registrar correctamente tus actividades.',
         'https://images.unsplash.com/photo-1552664730-d307ca884978',
         [
-          'Registrar actividades',
           'Subir evidencias',
+          'Registrar actividades',
           'Validación del responsable',
-          'No exceder fechas límite'
+          'Evitar fechas límite'
         ]
       )"
     >
@@ -96,13 +104,17 @@
         src="https://images.unsplash.com/photo-1552664730-d307ca884978"
       >
 
-      <h3>
-        📊 Informes Trimestrales
-      </h3>
+      <div class="card-content">
 
-      <p>
-        Aprende cómo subir correctamente tus informes.
-      </p>
+        <h3>
+          📊 Informes Trimestrales
+        </h3>
+
+        <p>
+          Aprende cómo subir correctamente tus informes.
+        </p>
+
+      </div>
 
     </div>
 
@@ -110,16 +122,15 @@
 
     <div
       class="info-card"
-
       (click)="abrirModal(
-        'Liberación y Certificado',
-        'Conoce el proceso final para liberar tu servicio social y obtener tu certificado.',
+        'Liberación',
+        'Conoce cómo finalizar correctamente tu servicio social.',
         'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
         [
-          'Carta de término',
-          'Evaluación final',
+          'Carta término',
           'Liberación',
-          'Entrega de certificado'
+          'Validación final',
+          'Entrega certificado'
         ]
       )"
     >
@@ -128,17 +139,20 @@
         src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
       >
 
-      <h3>
-        🎓 Liberación
-      </h3>
+      <div class="card-content">
 
-      <p>
-        Aprende cómo obtener tu certificado final.
-      </p>
+        <h3>
+          🎓 Liberación
+        </h3>
+
+        <p>
+          Aprende cómo finalizar correctamente tu trámite.
+        </p>
+
+      </div>
 
     </div>
 
   </div>
 
 </section>
-```

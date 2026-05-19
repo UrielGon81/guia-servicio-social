@@ -1,36 +1,48 @@
 <section class="chatbot-section">
 
-  <h1>
-    Chatbot Inteligente
-  </h1>
+  <div class="chatbot-container">
 
-  <p>
-    Realiza preguntas sobre tu servicio social.
-  </p>
+    <h1>
+      🤖 Chatbot Inteligente
+    </h1>
 
-  <div class="chat-container">
+    <p class="subtitle">
+      Resuelve dudas frecuentes sobre tu servicio social.
+    </p>
 
-    <input
-      type="text"
+    <!-- MENSAJES -->
 
-      [(ngModel)]="pregunta"
+    <div class="chat-messages">
 
-      placeholder="Escribe tu pregunta..."
-    >
+      <div
+        *ngFor="let mensaje of mensajes"
+        class="mensaje"
+        [ngClass]="mensaje.tipo"
+      >
 
-    <button (click)="responder()">
+        {{ mensaje.texto }}
 
-      Preguntar
+      </div>
 
-    </button>
+    </div>
 
-    <div
-      class="respuesta"
+    <!-- INPUT -->
 
-      *ngIf="respuesta"
-    >
+    <div class="chat-input">
 
-      {{ respuesta }}
+      <input
+        type="text"
+        [(ngModel)]="pregunta"
+        placeholder="Escribe tu pregunta..."
+        (keyup.enter)="enviarPregunta()"
+      >
+
+      <button
+        type="button"
+        (click)="enviarPregunta()"
+      >
+        Enviar
+      </button>
 
     </div>
 

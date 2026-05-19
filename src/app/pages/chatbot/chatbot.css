@@ -2,69 +2,143 @@
 
   min-height: 100vh;
 
+  background: #f5f5f5;
+
   padding: 120px 20px;
 
-  background: linear-gradient(
-    135deg,
-    #2E7D32,
-    #1B5E20
-  );
+  display: flex;
 
-  color: white;
+  justify-content: center;
+
+}
+
+.chatbot-container {
+
+  width: 100%;
+
+  max-width: 900px;
+
+  background: white;
+
+  border-radius: 25px;
+
+  padding: 40px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+
+}
+
+.chatbot-container h1 {
 
   text-align: center;
 
+  font-size: 3rem;
+
+  margin-bottom: 10px;
+
 }
 
-.chatbot-section h1 {
+.subtitle {
 
-  font-size: 4rem;
+  text-align: center;
+
+  color: gray;
+
+  margin-bottom: 40px;
+
+}
+
+.chat-messages {
+
+  height: 500px;
+
+  overflow-y: auto;
+
+  background: #f7f7f7;
+
+  border-radius: 20px;
+
+  padding: 20px;
 
   margin-bottom: 20px;
-
-}
-
-.chat-container {
-
-  max-width: 700px;
-
-  margin: auto;
-
-  margin-top: 50px;
 
   display: flex;
 
   flex-direction: column;
 
-  gap: 20px;
+  gap: 15px;
 
 }
 
-input {
+.mensaje {
 
-  padding: 20px;
+  padding: 15px 20px;
 
-  border-radius: 10px;
+  border-radius: 20px;
 
-  border: none;
+  max-width: 75%;
 
-  font-size: 1.2rem;
+  font-size: 1rem;
+
+  line-height: 1.5;
 
 }
 
-button {
+.bot {
 
-  padding: 20px;
+  background: #e8f5e9;
 
-  border: none;
+  align-self: flex-start;
 
-  border-radius: 10px;
+}
 
-  background: #C9A227;
+.usuario {
+
+  background: #2E7D32;
 
   color: white;
 
-  font-size: 1.2rem;
+  align-self: flex-end;
+
+}
+
+.chat-input {
+
+  display: flex;
+
+  gap: 10px;
+
+}
+
+.chat-input input {
+
+  flex: 1;
+
+  padding: 18px;
+
+  border-radius: 15px;
+
+  border: 1px solid #ccc;
+
+  font-size: 1rem;
+
+  outline: none;
+
+}
+
+.chat-input button {
+
+  padding: 18px 30px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background: #2E7D32;
+
+  color: white;
+
+  font-weight: bold;
 
   cursor: pointer;
 
@@ -72,43 +146,35 @@ button {
 
 }
 
-button:hover {
+.chat-input button:hover {
 
-  transform: scale(1.05);
-
-}
-
-.respuesta {
-
-  background: white;
-
-  color: black;
-
-  padding: 30px;
-
-  border-radius: 20px;
-
-  margin-top: 20px;
-
-  animation: aparecer .5s ease;
+  background: #1B5E20;
 
 }
 
-@keyframes aparecer {
+@media screen and (max-width: 768px) {
 
-  from {
+  .chatbot-container {
 
-    opacity: 0;
-
-    transform: translateY(20px);
+    padding: 20px;
 
   }
 
-  to {
+  .chatbot-container h1 {
 
-    opacity: 1;
+    font-size: 2rem;
 
-    transform: translateY(0);
+  }
+
+  .chat-input {
+
+    flex-direction: column;
+
+  }
+
+  .chat-input button {
+
+    width: 100%;
 
   }
 

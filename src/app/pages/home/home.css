@@ -1,6 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* HERO */
+
 .hero {
 
-  height: 100vh;
+  min-height: 100vh;
 
   background:
   linear-gradient(
@@ -13,6 +26,8 @@
 
   background-position: center;
 
+  background-repeat: no-repeat;
+
   display: flex;
 
   justify-content: center;
@@ -21,6 +36,8 @@
 
   text-align: center;
 
+  padding: 20px;
+
 }
 
 .overlay {
@@ -28,6 +45,8 @@
   color: white;
 
   max-width: 900px;
+
+  width: 100%;
 
 }
 
@@ -39,32 +58,19 @@
     5rem
   );
 
-}
-@media screen and (max-width: 768px) {
+  line-height: 1.1;
 
-  .overlay {
-
-    padding: 20px;
-
-  }
-
-  .overlay p {
-
-    font-size: 1rem;
-
-  }
-
-  .hero {
-
-    text-align: center;
-
-  }
+  margin-bottom: 20px;
 
 }
 
 .overlay p {
 
-  font-size: 1.5rem;
+  font-size: clamp(
+    1rem,
+    2vw,
+    1.5rem
+  );
 
   margin-bottom: 30px;
 
@@ -72,17 +78,19 @@
 
 .overlay button {
 
-  padding: 25px 40px;
+  padding: 18px 35px;
 
   border-radius: 50px;
 
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 
 }
 
+/* INFO SECTION */
+
 .info-section {
 
-  padding: 100px 40px;
+  padding: 80px 20px;
 
   background: #f5f5f5;
 
@@ -92,7 +100,11 @@
 
   text-align: center;
 
-  font-size: 3rem;
+  font-size: clamp(
+    2rem,
+    5vw,
+    3rem
+  );
 
   margin-bottom: 60px;
 
@@ -103,7 +115,7 @@
   display: grid;
 
   grid-template-columns:
-  repeat(auto-fit,minmax(300px,1fr));
+  repeat(auto-fit,minmax(280px,1fr));
 
   gap: 30px;
 
@@ -121,6 +133,8 @@
 
   transition: .3s;
 
+  cursor: pointer;
+
 }
 
 .info-card:hover {
@@ -137,11 +151,15 @@
 
   object-fit: cover;
 
+  display: block;
+
 }
 
 .info-card h3 {
 
   padding: 20px;
+
+  font-size: 1.4rem;
 
 }
 
@@ -149,11 +167,15 @@
 
   padding: 0 20px 20px;
 
+  line-height: 1.5;
+
 }
+
+/* STEPS */
 
 .steps-section {
 
-  padding: 100px 40px;
+  padding: 80px 20px;
 
   background: white;
 
@@ -163,7 +185,11 @@
 
   text-align: center;
 
-  font-size: 3rem;
+  font-size: clamp(
+    2rem,
+    5vw,
+    3rem
+  );
 
   margin-bottom: 60px;
 
@@ -186,7 +212,7 @@
 
   color: white;
 
-  padding: 40px;
+  padding: 40px 20px;
 
   border-radius: 20px;
 
@@ -226,4 +252,64 @@
 
   font-weight: bold;
 
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+
+  .hero{
+
+    padding: 40px 20px;
+
+  }
+
+  .overlay h1{
+
+    font-size: 3rem;
+
+  }
+
+  .overlay p{
+
+    font-size: 1rem;
+
+  }
+
+  .info-section,
+  .steps-section{
+
+    padding: 60px 15px;
+
+  }
+
+  .info-card img{
+
+    height: 200px;
+
+  }
+
+  .overlay button{
+
+    width: 100%;
+
+  }
+.info-card{
+
+  cursor:pointer;
+
+  transition:.4s;
+
+}
+
+.info-card:hover{
+
+  transform:
+  translateY(-10px)
+  scale(1.02);
+
+  box-shadow:
+  0 20px 40px rgba(0,0,0,.2);
+
+}
 }

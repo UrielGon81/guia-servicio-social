@@ -1,57 +1,78 @@
 <mat-toolbar>
 
+  <!-- LOGO -->
+
   <span class="logo">
-
     Servicio Social
-
   </span>
 
   <span class="spacer"></span>
 
-  <!-- DESKTOP -->
+  <!-- DESKTOP MENU -->
 
   <div class="desktop-menu">
 
-    <button mat-button routerLink="/">
+    <button
+      mat-button
+      routerLink="/"
+    >
       Inicio
     </button>
 
-    <button mat-button routerLink="/proceso">
+    <button
+      mat-button
+      routerLink="/proceso"
+    >
       Proceso
     </button>
 
-    <button mat-button routerLink="/requisitos">
+    <button
+      mat-button
+      routerLink="/requisitos"
+    >
       Requisitos
     </button>
 
-    <button mat-button routerLink="/faq">
+    <button
+      mat-button
+      routerLink="/faq"
+    >
       FAQ
     </button>
 
-    <button mat-button routerLink="/checklist">
+    <button
+      mat-button
+      routerLink="/checklist"
+    >
       Checklist
     </button>
 
-    <button mat-button routerLink="/tutorial">
-  Tutorial
-</button>
+    <button
+      mat-button
+      routerLink="/tutorial"
+    >
+      Tutorial
+    </button>
+
+    <button
+      mat-button
+      routerLink="/chatbot"
+    >
+      Chatbot
+    </button>
 
   </div>
 
-  <!-- MOBILE -->
+  <!-- MOBILE BUTTON -->
 
   <button
     mat-icon-button
-
     class="mobile-button"
-
     (click)="menuAbierto = !menuAbierto"
   >
 
     <mat-icon>
-
       menu
-
     </mat-icon>
 
   </button>
@@ -62,31 +83,63 @@
 
 <div
   class="mobile-menu"
-
   *ngIf="menuAbierto"
 >
 
-  <button mat-button routerLink="/">
+  <button
+    mat-button
+    routerLink="/"
+    (click)="menuAbierto = false"
+  >
     Inicio
   </button>
 
-  <button mat-button routerLink="/proceso">
+  <button
+    mat-button
+    routerLink="/proceso"
+    (click)="menuAbierto = false"
+  >
     Proceso
   </button>
 
-  <button mat-button routerLink="/requisitos">
+  <button
+    mat-button
+    routerLink="/requisitos"
+    (click)="menuAbierto = false"
+  >
     Requisitos
   </button>
 
-  <button mat-button routerLink="/faq">
+  <button
+    mat-button
+    routerLink="/faq"
+    (click)="menuAbierto = false"
+  >
     FAQ
   </button>
 
-  <button mat-button routerLink="/checklist">
+  <button
+    mat-button
+    routerLink="/checklist"
+    (click)="menuAbierto = false"
+  >
     Checklist
   </button>
-  <button mat-button routerLink="/videos">
-  Videos
-</button>
+
+  <button
+    mat-button
+    routerLink="/tutorial"
+    (click)="menuAbierto = false"
+  >
+    Tutorial
+  </button>
+
+  <button
+    mat-button
+    routerLink="/chatbot"
+    (click)="menuAbierto = false"
+  >
+    Chatbot
+  </button>
 
 </div>

@@ -14,8 +14,9 @@ import { Footer } from './components/footer/footer';
   imports: [
     RouterOutlet,
     Navbar,
-    Footer
-  ],
+    Footer,
+   
+],
 
   templateUrl: './app.html',
 

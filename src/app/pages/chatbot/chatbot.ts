@@ -1,21 +1,12 @@
 import { Component } from '@angular/core';
-
-import { FormsModule } from '@angular/forms';
-
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chatbot',
-
   standalone: true,
-
-  imports: [
-    FormsModule,
-    CommonModule
-  ],
-
+  imports: [CommonModule, FormsModule],
   templateUrl: './chatbot.html',
-
   styleUrl: './chatbot.css'
 })
 
@@ -23,55 +14,119 @@ export class Chatbot {
 
   pregunta = '';
 
-  respuesta = '';
+  mensajes = [
+    {
+      tipo: 'bot',
+      texto: 'Hola 👋 ¿En qué puedo ayudarte?'
+    }
+  ];
 
-  responder() {
+  enviarPregunta() {
 
-    const texto =
-    this.pregunta.toLowerCase();
+    const texto = this.pregunta.trim().toLowerCase();
+
+    if (!texto) return;
+
+    // MENSAJE DEL USUARIO
+
+    this.mensajes.push({
+      tipo: 'usuario',
+      texto: this.pregunta
+    });
+
+    let respuesta = '';
+
+    // RESPUESTAS INTELIGENTES
 
     if (
-      texto.includes('horas')
+      texto.includes('informe') ||
+      texto.includes('trimestral')
     ) {
 
-      this.respuesta =
-      'Necesitas cumplir mínimo 480 horas de servicio social.';
+      respuesta =
+      'Debes ingresar al sistema SICDE y seleccionar el apartado de informes trimestrales.';
 
     }
 
     else if (
-      texto.includes('meses')
+      texto.includes('registro') ||
+      texto.includes('registrar')
     ) {
 
-      this.respuesta =
-      'La duración mínima es de 6 meses.';
+      respuesta =
+      'Debes ingresar al portal SICDE y completar correctamente tu registro institucional.';
 
     }
 
     else if (
-      texto.includes('familiares')
+      texto.includes('documentos') ||
+      texto.includes('formatos') ||
+      texto.includes('requisitos')
     ) {
 
-      this.respuesta =
-      'No puedes realizar servicio social con familiares.';
+      respuesta =
+      'Necesitas carta de aceptación, formato de inscripción y CURP.';
 
     }
 
     else if (
-      texto.includes('creditos')
+      texto.includes('liberacion') ||
+      texto.includes('liberar')
     ) {
 
-      this.respuesta =
-      'Debes tener cubierto el 50% de créditos.';
+      respuesta =
+      'Para liberar tu servicio social necesitas entregar todos tus informes y la carta de término.';
 
     }
+
+    else if (
+      texto.includes('hola') ||
+      texto.includes('buenas')
+    ) {
+
+      respuesta =
+      'Hola 👋 ¿En qué puedo ayudarte con tu servicio social?';
+
+    }
+
+    // SI NO ENCUENTRA RESPUESTA
 
     else {
 
-      this.respuesta =
-      'No encontré una respuesta. Consulta con el responsable de servicio social.';
+      respuesta =
+      'No encontré una respuesta 😢 Tu pregunta fue guardada para mejorar el chatbot.';
+
+      // GUARDAR PREGUNTA NUEVA
+
+      const preguntasGuardadas =
+        JSON.parse(localStorage.getItem('preguntas_nuevas') || '[]');
+
+      preguntasGuardadas.push({
+        pregunta: this.pregunta,
+        fecha: new Date()
+      });
+
+      localStorage.setItem(
+        'preguntas_nuevas',
+        JSON.stringify(preguntasGuardadas)
+      );
 
     }
+
+    // RESPUESTA BOT
+
+    setTimeout(() => {
+
+      this.mensajes.push({
+        tipo: 'bot',
+        texto: respuesta
+      });
+
+    }, 700);
+
+    // LIMPIAR INPUT
+
+    this.pregunta = '';
 
   }
 
