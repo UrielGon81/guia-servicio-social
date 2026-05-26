@@ -1,18 +1,24 @@
-<section class="chatbot-section">
+<section class="chatbot-page">
 
-  <div class="chatbot-container">
+  <div class="chat-container">
 
-    <h1>
-      🤖 Chatbot Inteligente
-    </h1>
+    <!-- HEADER -->
 
-    <p class="subtitle">
-      Resuelve dudas frecuentes sobre tu servicio social.
-    </p>
+    <div class="chat-header">
 
-    <!-- MENSAJES -->
+      <h1>
+        Asistente Virtual
+      </h1>
 
-    <div class="chat-messages">
+      <p>
+        Sistema de apoyo para servicio social.
+      </p>
+
+    </div>
+
+    <!-- CHAT -->
+
+    <div class="chat-box">
 
       <div
         *ngFor="let mensaje of mensajes"
@@ -24,6 +30,17 @@
 
       </div>
 
+      <!-- LOADING -->
+
+      <div
+        *ngIf="cargando"
+        class="mensaje bot"
+      >
+
+        Escribiendo...
+
+      </div>
+
     </div>
 
     <!-- INPUT -->
@@ -31,17 +48,22 @@
     <div class="chat-input">
 
       <input
+
         type="text"
-        [(ngModel)]="pregunta"
+
         placeholder="Escribe tu pregunta..."
+
+        [(ngModel)]="pregunta"
+
         (keyup.enter)="enviarPregunta()"
       >
 
       <button
-        type="button"
         (click)="enviarPregunta()"
       >
+
         Enviar
+
       </button>
 
     </div>

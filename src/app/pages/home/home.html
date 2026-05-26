@@ -1,14 +1,37 @@
-<section
-  class="info-section"
-  data-aos="fade-up"
->
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="overlay">
+
+    <h1>
+      Plataforma de Servicio Social
+    </h1>
+
+    <p>
+      Gestiona tu proceso de manera clara, rápida y organizada.
+    </p>
+
+    <button routerLink="/proceso">
+
+      Comenzar
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- INFO -->
+
+<section class="info-section">
 
   <h2>
     ¿Qué podrás hacer aquí?
   </h2>
 
   <p class="info-subtitle">
-    Plataforma interactiva para ayudarte paso a paso durante todo tu servicio social.
+    Herramientas y recursos para facilitar tu servicio social.
   </p>
 
   <div class="info-grid">
@@ -17,31 +40,25 @@
 
     <div
       class="info-card"
-      (click)="abrirModal(
-        'Registro SICDE',
-        'Aprende paso a paso cómo registrarte correctamente en el sistema SICDE.',
-        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40',
-        [
-          'Registrar datos personales',
-          'Seleccionar dependencia',
-          'Verificar fechas',
-          'Guardar información'
-        ]
-      )"
+      routerLink="/proceso"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-      >
+      <div class="card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+        >
+
+      </div>
 
       <div class="card-content">
 
         <h3>
-          📋 Registro SICDE
+          Registro
         </h3>
 
         <p>
-          Aprende cómo iniciar correctamente tu servicio social.
+          Aprende cómo iniciar correctamente tu trámite.
         </p>
 
       </div>
@@ -52,31 +69,25 @@
 
     <div
       class="info-card"
-      (click)="abrirModal(
-        'Formatos Oficiales',
-        'Consulta todos los documentos y formatos necesarios.',
-        'https://images.unsplash.com/photo-1516321318423-f06f85e504b3',
-        [
-          'Carta presentación',
-          'Carta aceptación',
-          'Formato trimestral',
-          'Carta término'
-        ]
-      )"
+      routerLink="/requisitos"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-      >
+      <div class="card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+        >
+
+      </div>
 
       <div class="card-content">
 
         <h3>
-          📄 Formatos Oficiales
+          Requisitos
         </h3>
 
         <p>
-          Descarga y conoce los documentos necesarios.
+          Consulta documentos y formatos necesarios.
         </p>
 
       </div>
@@ -87,31 +98,25 @@
 
     <div
       class="info-card"
-      (click)="abrirModal(
-        'Informes Trimestrales',
-        'Aprende cómo registrar correctamente tus actividades.',
-        'https://images.unsplash.com/photo-1552664730-d307ca884978',
-        [
-          'Subir evidencias',
-          'Registrar actividades',
-          'Validación del responsable',
-          'Evitar fechas límite'
-        ]
-      )"
+      routerLink="/tutorial"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1552664730-d307ca884978"
-      >
+      <div class="card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+        >
+
+      </div>
 
       <div class="card-content">
 
         <h3>
-          📊 Informes Trimestrales
+          Tutoriales
         </h3>
 
         <p>
-          Aprende cómo subir correctamente tus informes.
+          Aprende paso a paso mediante videos y guías.
         </p>
 
       </div>
@@ -122,31 +127,25 @@
 
     <div
       class="info-card"
-      (click)="abrirModal(
-        'Liberación',
-        'Conoce cómo finalizar correctamente tu servicio social.',
-        'https://images.unsplash.com/photo-1523240795612-9a054b0db644',
-        [
-          'Carta término',
-          'Liberación',
-          'Validación final',
-          'Entrega certificado'
-        ]
-      )"
+      routerLink="/chatbot"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
-      >
+      <div class="card-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+        >
+
+      </div>
 
       <div class="card-content">
 
         <h3>
-          🎓 Liberación
+          Asistente Virtual
         </h3>
 
         <p>
-          Aprende cómo finalizar correctamente tu trámite.
+          Resuelve dudas frecuentes rápidamente.
         </p>
 
       </div>

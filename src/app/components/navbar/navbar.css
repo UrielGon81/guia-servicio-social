@@ -1,108 +1,182 @@
-mat-toolbar {
+mat-toolbar{
 
-  background: #1f1f1f;
+  position:fixed;
 
-  color: white;
+  top:0;
 
-  display: flex;
+  left:0;
 
-  justify-content: space-between;
+  width:100%;
 
-  align-items: center;
+  z-index:999;
 
-  padding: 0 20px;
+  display:flex;
 
-  position: sticky;
+  justify-content:space-between;
 
-  top: 0;
+  align-items:center;
 
-  z-index: 9999;
+  padding:0 40px;
 
-  height: 70px;
+  height:85px;
 
-}
+  background:
+  rgba(10,10,10,.9);
 
-.logo {
+  backdrop-filter:blur(10px);
 
-  font-size: 2rem;
-
-  font-weight: bold;
-
-  white-space: nowrap;
+  box-shadow:
+  0 5px 20px rgba(0,0,0,.2);
 
 }
 
-.spacer {
+/* LOGO */
 
-  flex: 1;
+.logo{
 
-}
+  color:white;
 
-/* DESKTOP */
+  font-size:2rem;
 
-.desktop-menu {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  flex-wrap: wrap;
+  font-weight:700;
 
 }
 
-.desktop-menu button {
+/* MENU */
 
-  color: white;
+.desktop-menu{
 
-  font-weight: 600;
+  display:flex;
+
+  gap:10px;
+
+}
+
+.desktop-menu button{
+
+  color:white;
+
+  font-size:1rem;
+
+  font-weight:600;
+
+  border-radius:12px;
+
+  transition:.3s ease;
+
+}
+
+.desktop-menu button:hover{
+
+  background:#2E7D32;
+
+  transform:translateY(-2px);
+
+}
+
+/* BOTÓN CHATBOT */
+
+.chatbot-btn{
+
+  background:#2E7D32;
+
+  border-radius:30px;
+
+  padding:5px 15px;
 
 }
 
 /* MOBILE */
 
-.mobile-button {
+.mobile-button{
 
-  display: none;
+  display:none;
 
-  color: white;
-
-}
-
-.mobile-menu {
-
-  display: flex;
-
-  flex-direction: column;
-
-  background: #1f1f1f;
-
-  padding: 15px;
+  color:white;
 
 }
 
-.mobile-menu button {
+.mobile-menu{
 
-  color: white;
+  position:fixed;
 
-  text-align: left;
+  top:85px;
+
+  left:0;
+
+  width:100%;
+
+  background:#111;
+
+  display:flex;
+
+  flex-direction:column;
+
+  padding:20px;
+
+  z-index:999;
+
+  animation:fadeMenu .3s ease;
+
+}
+
+.mobile-menu button{
+
+  color:white;
+
+  justify-content:flex-start;
+
+  padding:15px;
+
+  font-size:1rem;
+
+}
+
+/* ANIMACIÓN */
+
+@keyframes fadeMenu{
+
+  from{
+
+    opacity:0;
+    transform:translateY(-10px);
+
+  }
+
+  to{
+
+    opacity:1;
+    transform:translateY(0);
+
+  }
 
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 900px) {
+@media screen and (max-width:900px){
 
-  .desktop-menu {
+  .desktop-menu{
 
-    display: none;
+    display:none;
 
   }
 
-  .mobile-button {
+  .mobile-button{
 
-    display: block;
+    display:flex;
+
+  }
+
+  mat-toolbar{
+
+    padding:0 20px;
+
+  }
+
+  .logo{
+
+    font-size:1.5rem;
 
   }
 

@@ -4,14 +4,19 @@ import { appConfig } from './app/app.config';
 
 import { App } from './app/app';
 
-import * as AOS from 'aos';
-
+import AOS from 'aos';
 
 bootstrapApplication(App, appConfig)
-  .then(() => {
 
-    AOS.init();
+.then(() => {
 
-  })
+  AOS.init({
 
-  .catch((err) => console.error(err));
+    duration:1000,
+    once:true
+
+  });
+
+})
+
+.catch((err) => console.error(err));

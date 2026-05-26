@@ -2,13 +2,15 @@
 
   <!-- LOGO -->
 
-  <span class="logo">
+  <div class="logo">
+
     Servicio Social
-  </span>
+
+  </div>
 
   <span class="spacer"></span>
 
-  <!-- DESKTOP MENU -->
+  <!-- DESKTOP -->
 
   <div class="desktop-menu">
 
@@ -35,9 +37,9 @@
 
     <button
       mat-button
-      routerLink="/faq"
+      routerLink="/tutorial"
     >
-      FAQ
+      Tutoriales
     </button>
 
     <button
@@ -49,16 +51,31 @@
 
     <button
       mat-button
-      routerLink="/tutorial"
+      routerLink="/faq"
     >
-      Tutorial
+      FAQ
     </button>
+
+    <!-- CHATBOT -->
 
     <button
       mat-button
       routerLink="/chatbot"
+      class="chatbot-btn"
     >
-      Chatbot
+      Asistente
+    </button>
+
+    <!-- DARK MODE -->
+
+    <button
+      mat-button
+      class="dark-btn"
+      (click)="toggleDarkMode()"
+    >
+
+      {{ darkMode ? 'Claro' : 'Oscuro' }}
+
     </button>
 
   </div>
@@ -112,10 +129,10 @@
 
   <button
     mat-button
-    routerLink="/faq"
+    routerLink="/tutorial"
     (click)="menuAbierto = false"
   >
-    FAQ
+    Tutoriales
   </button>
 
   <button
@@ -128,18 +145,31 @@
 
   <button
     mat-button
-    routerLink="/tutorial"
+    routerLink="/faq"
     (click)="menuAbierto = false"
   >
-    Tutorial
+    FAQ
   </button>
 
   <button
     mat-button
     routerLink="/chatbot"
+    class="chatbot-btn"
     (click)="menuAbierto = false"
   >
-    Chatbot
+    Asistente
+  </button>
+
+  <!-- DARK MODE MOBILE -->
+
+  <button
+    mat-button
+    class="dark-btn"
+    (click)="toggleDarkMode()"
+  >
+
+    {{ darkMode ? 'Modo Claro' : 'Modo Oscuro' }}
+
   </button>
 
 </div>

@@ -131,3 +131,133 @@
   font-size: 1.2rem;
 
 }
+/* RESPONSIVE */
+
+@media screen and (max-width:768px){
+
+  .hero{
+
+    padding:40px 20px;
+
+    text-align:center;
+
+  }
+
+  .overlay{
+
+    width:100%;
+
+  }
+
+  .overlay h1{
+
+    font-size:2.8rem !important;
+
+    line-height:1.2;
+
+  }
+
+  .overlay p{
+
+    font-size:1rem !important;
+
+    line-height:1.7;
+
+  }
+
+  .overlay button{
+
+    width:100%;
+
+  }
+
+  .info-section,
+  .steps-section,
+  .timeline-section{
+
+    padding:100px 20px 70px;
+
+  }
+
+  .info-grid,
+  .timeline,
+  .steps{
+
+    grid-template-columns:1fr !important;
+
+    gap:25px;
+
+  }
+
+  .info-card,
+  .timeline-card,
+  .step{
+
+    width:100%;
+
+  }
+
+  .card-content{
+
+    padding:25px;
+
+  }
+
+  .card-content h3,
+  .timeline-card h2{
+
+    font-size:1.5rem;
+
+  }
+
+  .timeline-header h1,
+  .info-section h2{
+
+    font-size:2.5rem !important;
+
+  }
+
+  .timeline-header p,
+  .info-subtitle{
+
+    font-size:1rem;
+
+  }
+
+  .chatbot-window{
+
+    width:95% !important;
+
+    height:80vh !important;
+
+    right:10px !important;
+
+    bottom:90px !important;
+
+  }
+
+  .chat-input{
+
+    flex-direction:column;
+
+  }
+
+  .chat-input button{
+
+    width:100%;
+
+  }
+
+  mat-toolbar{
+
+    padding:0 15px !important;
+
+  }
+
+  .logo{
+
+    font-size:1.4rem !important;
+
+  }
+
+}
