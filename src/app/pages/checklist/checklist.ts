@@ -1,25 +1,18 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-checklist',
-
   standalone: true,
-
   imports: [
     CommonModule,
     FormsModule
   ],
-
   templateUrl: './checklist.html',
-
   styleUrl: './checklist.css'
 })
-
-export class Checklist {
+export class Checklist implements OnInit {
 
   pasos = [
 
@@ -55,7 +48,29 @@ export class Checklist {
 
   ];
 
-  get progreso() {
+  ngOnInit() {
+
+    const datos =
+    localStorage.getItem('checklist');
+
+    if(datos){
+
+      this.pasos = JSON.parse(datos);
+
+    }
+
+  }
+
+  guardar() {
+
+    localStorage.setItem(
+      'checklist',
+      JSON.stringify(this.pasos)
+    );
+
+  }
+
+  get progreso(): number {
 
     const completados =
     this.pasos.filter(

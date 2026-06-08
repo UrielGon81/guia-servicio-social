@@ -1,38 +1,43 @@
-<section class="checklist-section">
+<section class="checklist-page">
 
   <h1>
     Checklist del Servicio Social
   </h1>
 
+  <br>
   <p>
     Lleva el control de tu trámite paso a paso.
   </p>
+
+  <!-- BARRA DE PROGRESO -->
 
   <div class="progress-container">
 
     <div
       class="progress-bar"
-
       [style.width.%]="progreso"
-    >
+    ></div>
+
+    <span class="progress-text">
 
       {{ progreso | number:'1.0-0' }}%
 
-    </div>
+    </span>
 
   </div>
+
+  <!-- LISTA -->
 
   <div class="lista">
 
     <div
       class="item"
-
+      [class.completado]="paso.completado"
       *ngFor="let paso of pasos"
     >
 
       <input
         type="checkbox"
-
         [(ngModel)]="paso.completado"
       >
 

@@ -6,44 +6,20 @@
 
   <mat-accordion>
 
-    <mat-expansion-panel>
+    <mat-expansion-panel
+      *ngFor="let item of preguntas"
+    >
 
       <mat-expansion-panel-header>
 
-        ¿Cuántas horas necesito?
+        {{ item.pregunta }}
 
       </mat-expansion-panel-header>
 
       <p>
-        Necesitas 480 horas mínimas.
-      </p>
 
-    </mat-expansion-panel>
+        {{ item.respuesta }}
 
-    <mat-expansion-panel>
-
-      <mat-expansion-panel-header>
-
-        ¿Puedo hacerlo con familiares?
-
-      </mat-expansion-panel-header>
-
-      <p>
-        No está permitido.
-      </p>
-
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-
-      <mat-expansion-panel-header>
-
-        ¿Cuál es la duración mínima?
-
-      </mat-expansion-panel-header>
-
-      <p>
-        Debe durar mínimo 6 meses.
       </p>
 
     </mat-expansion-panel>

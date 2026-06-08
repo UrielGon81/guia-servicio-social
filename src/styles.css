@@ -1,7 +1,8 @@
 @import 'aos/dist/aos.css';
-@import 'aos/dist/aos.css';
 
-/* RESET */
+/* =========================
+   RESET
+========================= */
 
 *{
 
@@ -12,7 +13,9 @@
 
 }
 
-/* BODY */
+/* =========================
+   HTML / BODY
+========================= */
 
 html{
 
@@ -31,9 +34,31 @@ body{
 
   background:#f5f5f5;
 
+  transition:
+  background .3s ease,
+  color .3s ease;
+
 }
 
-/* IMÁGENES */
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+  width:100%;
+
+  max-width:1400px;
+
+  margin:auto;
+
+  padding:0 20px;
+
+}
+
+/* =========================
+   IMÁGENES
+========================= */
 
 img{
 
@@ -43,7 +68,9 @@ img{
 
 }
 
-/* BOTONES */
+/* =========================
+   BOTONES
+========================= */
 
 button{
 
@@ -51,17 +78,29 @@ button{
 
   transition:.3s ease;
 
+  border:none;
+
 }
 
-/* TEXTOS */
+/* =========================
+   TEXTOS
+========================= */
 
-h1,h2,h3,h4,p{
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+label{
 
   word-wrap:break-word;
 
 }
 
-/* INPUTS */
+/* =========================
+   INPUTS
+========================= */
 
 input,
 textarea{
@@ -74,7 +113,9 @@ textarea{
 
 }
 
-/* SCROLL */
+/* =========================
+   SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar{
 
@@ -90,21 +131,9 @@ textarea{
 
 }
 
-/* RESPONSIVE GLOBAL */
-
-.container{
-
-  width:100%;
-
-  max-width:1400px;
-
-  margin:auto;
-
-  padding:0 20px;
-
-}
-
-/* MÓVIL */
+/* =========================
+   RESPONSIVE GLOBAL
+========================= */
 
 @media screen and (max-width:768px){
 
@@ -115,11 +144,12 @@ textarea{
   }
 
 }
-/* =========================
-   DARK MODE LIMPIO
-========================= */
 
-.dark-mode{
+/* ===================================
+   DARK MODE
+=================================== */
+
+body.dark-mode{
 
   background:#121212;
 
@@ -129,106 +159,182 @@ textarea{
 
 /* NAVBAR */
 
-.dark-mode mat-toolbar{
+body.dark-mode mat-toolbar{
 
   background:#0a0a0a !important;
 
-}
-
-/* SECCIONES */
-
-.dark-mode .info-section,
-.dark-mode .steps-section,
-.dark-mode .timeline-section,
-.dark-mode .chatbot-page{
-
-  background:#181818 !important;
-
-}
-
-/* CARDS */
-
-.dark-mode .info-card,
-.dark-mode .timeline-card,
-.dark-mode .chat-container{
-
-  background:#1f1f1f !important;
-
-  border:1px solid #2d2d2d;
-
-}
-
-/* TÍTULOS */
-
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3{
-
-  color:white !important;
-
-}
-
-/* PÁRRAFOS */
-
-.dark-mode p{
-
-  color:#d1d1d1 !important;
-
-}
-
-/* SUBTÍTULOS */
-
-.dark-mode .info-subtitle{
-
-  color:#a0a0a0 !important;
-
-}
-
-/* INPUTS */
-
-.dark-mode input{
-
-  background:#2a2a2a;
-
-  color:white;
-
-  border:1px solid #3a3a3a;
-
-}
-
-/* CHAT */
-
-.dark-mode .chat-box{
-
-  background:#151515;
-
-}
-
-.dark-mode .bot{
-
-  background:#2a2a2a;
-
-  color:white;
-
-}
-
-.dark-mode .usuario{
-
-  background:#2E7D32;
-
-  color:white;
+  box-shadow:
+  0 5px 20px rgba(0,0,0,.5);
 
 }
 
 /* MOBILE MENU */
 
-.dark-mode .mobile-menu{
+body.dark-mode .mobile-menu{
 
-  background:#111;
+  background:#111 !important;
 
 }
 
-/* BOTÓN MODO */
+/* SECCIONES */
+
+body.dark-mode .hero,
+body.dark-mode .info-section,
+body.dark-mode .steps-section,
+body.dark-mode .timeline-section,
+body.dark-mode .faq-page,
+body.dark-mode .tutorial-page,
+body.dark-mode .checklist-page,
+body.dark-mode .chatbot-page{
+
+  background:#121212 !important;
+
+}
+
+/* TITULOS */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4{
+
+  color:white !important;
+
+}
+
+/* TEXTOS */
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label{
+
+  color:#d1d1d1 !important;
+
+}
+
+/* SUBTITULOS */
+
+body.dark-mode .info-subtitle{
+
+  color:#9e9e9e !important;
+
+}
+
+/* CARDS */
+
+body.dark-mode .info-card,
+body.dark-mode .timeline-card,
+body.dark-mode .tutorial-card,
+body.dark-mode .faq-item,
+body.dark-mode .check-item,
+body.dark-mode .chat-container{
+
+  background:#1d1d1d !important;
+
+  border:1px solid #2c2c2c;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.4);
+
+}
+
+/* FAQ */
+
+body.dark-mode .faq-question{
+
+  color:white !important;
+
+}
+
+body.dark-mode .faq-answer{
+
+  color:#cfcfcf !important;
+
+}
+
+/* CHECKLIST */
+
+body.dark-mode .check-item{
+
+  background:#1f1f1f !important;
+
+}
+
+body.dark-mode .check-item span{
+
+  color:white !important;
+
+}
+
+body.dark-mode .progress-bar{
+
+  background:#2a2a2a !important;
+
+}
+
+body.dark-mode .progress{
+
+  background:#2E7D32 !important;
+
+}
+
+/* CHATBOT */
+
+body.dark-mode .chat-container{
+
+  background:#1a1a1a !important;
+
+}
+
+body.dark-mode .chat-box{
+
+  background:#111 !important;
+
+}
+
+body.dark-mode .mensaje.bot{
+
+  background:#262626 !important;
+
+  color:white !important;
+
+}
+
+body.dark-mode .mensaje.usuario{
+
+  background:#2E7D32 !important;
+
+  color:white !important;
+
+}
+
+body.dark-mode .chat-input input{
+
+  background:#222 !important;
+
+  color:white !important;
+
+  border:1px solid #333 !important;
+
+}
+
+body.dark-mode .chat-input button{
+
+  background:#2E7D32 !important;
+
+  color:white !important;
+
+}
+
+/* TUTORIALES */
+
+body.dark-mode video{
+
+  border-radius:20px;
+
+}
+
+/* BOTÓN DARK */
 
 .dark-btn{
 
@@ -236,37 +342,18 @@ textarea{
 
   border-radius:20px;
 
-}
-/* CHECKLIST */
-
-.dark-mode .checklist-container{
-
-  background:#181818 !important;
+  padding:8px 16px;
 
 }
 
-.dark-mode .check-item{
+/* RESPONSIVE */
 
-  background:#1f1f1f !important;
+@media screen and (max-width:768px){
 
-  border:1px solid #2e2e2e;
+  .container{
 
-}
+    padding:0 15px;
 
-.dark-mode .check-item span{
-
-  color:white !important;
-
-}
-
-.dark-mode .progress-bar{
-
-  background:#2a2a2a !important;
-
-}
-
-.dark-mode .progress{
-
-  background:#2E7D32 !important;
+  }
 
 }

@@ -1,152 +1,204 @@
-<!-- HERO -->
+<section class="home-section">
 
-<section class="hero">
-
-  <div class="overlay">
+  <div class="home-header">
 
     <h1>
       Plataforma de Servicio Social
     </h1>
 
     <p>
-      Gestiona tu proceso de manera clara, rápida y organizada.
+      Gestiona tu servicio social de manera rápida y sencilla.
     </p>
-
-    <button routerLink="/proceso">
-
-      Comenzar
-
-    </button>
 
   </div>
 
-</section>
+  <div class="cards-container">
 
-<!-- INFO -->
-
-<section class="info-section">
-
-  <h2>
-    ¿Qué podrás hacer aquí?
-  </h2>
-
-  <p class="info-subtitle">
-    Herramientas y recursos para facilitar tu servicio social.
-  </p>
-
-  <div class="info-grid">
-
-    <!-- CARD 1 -->
+    <!-- PROCESO -->
 
     <div
-      class="info-card"
-      routerLink="/proceso"
+      class="card"
+      [class.active]="tarjetaActiva === 'proceso'"
+      (click)="abrirTarjeta('proceso')"
     >
 
-      <div class="card-image">
-
-        <img
-          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-        >
-
-      </div>
+      <img
+        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+        alt="Proceso"
+      >
 
       <div class="card-content">
 
-        <h3>
-          Registro
-        </h3>
+        <h2>Proceso</h2>
 
         <p>
-          Aprende cómo iniciar correctamente tu trámite.
+          Consulta cada etapa del trámite.
         </p>
+
+        <div
+          class="card-expand"
+          *ngIf="tarjetaActiva === 'proceso'"
+        >
+
+          <h3>Etapas del proceso</h3>
+
+          <ul>
+
+            <li>Registro en SICDE.</li>
+
+            <li>Entrega de documentación.</li>
+
+            <li>Asignación de dependencia.</li>
+
+            <li>Inicio de actividades.</li>
+
+            <li>Entrega de informes.</li>
+
+            <li>Liberación del servicio social.</li>
+
+          </ul>
+
+        </div>
 
       </div>
 
     </div>
 
-    <!-- CARD 2 -->
+    <!-- REQUISITOS -->
 
     <div
-      class="info-card"
-      routerLink="/requisitos"
+      class="card"
+      [class.active]="tarjetaActiva === 'requisitos'"
+      (click)="abrirTarjeta('requisitos')"
     >
 
-      <div class="card-image">
-
-        <img
-          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-        >
-
-      </div>
+      <img
+        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+        alt="Requisitos"
+      >
 
       <div class="card-content">
 
-        <h3>
-          Requisitos
-        </h3>
+        <h2>Requisitos</h2>
 
         <p>
-          Consulta documentos y formatos necesarios.
+          Documentos y formatos necesarios.
         </p>
+
+        <div
+          class="card-expand"
+          *ngIf="tarjetaActiva === 'requisitos'"
+        >
+
+          <h3>Documentación requerida</h3>
+
+          <ul>
+
+            <li>Formato de inscripción.</li>
+
+            <li>Carta de aceptación.</li>
+
+            <li>CURP actualizada.</li>
+
+            <li>Historial académico.</li>
+
+            <li>Informes trimestrales.</li>
+
+          </ul>
+
+        </div>
 
       </div>
 
     </div>
 
-    <!-- CARD 3 -->
+    <!-- TUTORIALES -->
 
     <div
-      class="info-card"
-      routerLink="/tutorial"
+      class="card"
+      [class.active]="tarjetaActiva === 'tutoriales'"
+      (click)="abrirTarjeta('tutoriales')"
     >
 
-      <div class="card-image">
-
-        <img
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978"
-        >
-
-      </div>
+      <img
+        src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+        alt="Tutoriales"
+      >
 
       <div class="card-content">
 
-        <h3>
-          Tutoriales
-        </h3>
+        <h2>Tutoriales</h2>
 
         <p>
-          Aprende paso a paso mediante videos y guías.
+          Aprende mediante videos y guías.
         </p>
+
+        <div
+          class="card-expand"
+          *ngIf="tarjetaActiva === 'tutoriales'"
+        >
+
+          <h3>Tutoriales disponibles</h3>
+
+          <ul>
+
+            <li>Registro en SICDE.</li>
+
+            <li>Generación de reportes.</li>
+
+            <li>Entrega de informes.</li>
+
+            <li>Proceso de liberación.</li>
+
+          </ul>
+
+        </div>
 
       </div>
 
     </div>
 
-    <!-- CARD 4 -->
+    <!-- ASISTENTE -->
 
     <div
-      class="info-card"
-      routerLink="/chatbot"
+      class="card"
+      [class.active]="tarjetaActiva === 'asistente'"
+      (click)="abrirTarjeta('asistente')"
     >
 
-      <div class="card-image">
-
-        <img
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
-        >
-
-      </div>
+      <img
+        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+        alt="Asistente Virtual"
+      >
 
       <div class="card-content">
 
-        <h3>
-          Asistente Virtual
-        </h3>
+        <h2>Asistente Virtual</h2>
 
         <p>
-          Resuelve dudas frecuentes rápidamente.
+          Resuelve tus dudas rápidamente.
         </p>
+
+        <div
+          class="card-expand"
+          *ngIf="tarjetaActiva === 'asistente'"
+        >
+
+          <h3>¿Qué puede hacer?</h3>
+
+          <ul>
+
+            <li>Responder preguntas frecuentes.</li>
+
+            <li>Explicar requisitos.</li>
+
+            <li>Ayudar con informes.</li>
+
+            <li>Orientar sobre el proceso.</li>
+
+          </ul>
+
+        </div>
 
       </div>
 

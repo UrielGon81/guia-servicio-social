@@ -1,21 +1,15 @@
 import { Component } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
-
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chatbot',
-
   standalone: true,
-
   imports: [
     CommonModule,
     FormsModule
   ],
-
   templateUrl: './chatbot.html',
-
   styleUrl: './chatbot.css'
 })
 
@@ -25,30 +19,77 @@ export class Chatbot {
 
   cargando = false;
 
+  memoriaAlumno = {
+
+    nombre: '',
+    carrera: '',
+    creditos: 0
+
+  };
+
   mensajes: any[] = [
 
     {
       tipo: 'bot',
       texto:
-      'Bienvenido al asistente virtual de servicio social. ¿En qué puedo ayudarte?'
+      'Bienvenido al asistente virtual de servicio social. ¿Cuál es tu nombre?'
     }
 
   ];
 
-  async enviarPregunta() {
+  constructor(){
+
+    const historial =
+      localStorage.getItem('chat_historial');
+
+    if(historial){
+
+      this.mensajes =
+        JSON.parse(historial);
+
+    }
+
+    const memoria =
+      localStorage.getItem('memoria_alumno');
+
+    if(memoria){
+
+      this.memoriaAlumno =
+        JSON.parse(memoria);
+
+    }
+
+  }
+
+  guardarDatos(){
+
+    localStorage.setItem(
+      'chat_historial',
+      JSON.stringify(this.mensajes)
+    );
+
+    localStorage.setItem(
+      'memoria_alumno',
+      JSON.stringify(this.memoriaAlumno)
+    );
+
+  }
+
+  async enviarPregunta(){
 
     const texto =
-    this.pregunta.trim().toLowerCase();
+      this.pregunta.trim();
 
-    if (!texto) return;
+    if(!texto) return;
 
-    // MENSAJE USUARIO
+    const textoLower =
+      texto.toLowerCase();
 
     this.mensajes.push({
 
-      tipo: 'usuario',
+      tipo:'usuario',
 
-      texto: this.pregunta
+      texto:texto
 
     });
 
@@ -56,169 +97,233 @@ export class Chatbot {
 
     this.pregunta = '';
 
-    // SIMULAR IA
-
     setTimeout(() => {
 
       let respuesta = '';
 
-      // REGISTRO
+      /* MEMORIA NOMBRE */
 
-      if (
+      if(
+        textoLower.includes('me llamo') ||
+        textoLower.includes('soy ')
+      ){
 
-        texto.includes('registro') ||
-        texto.includes('registrar') ||
-        texto.includes('sicde')
+        const nombre =
+          texto.replace(/me llamo|soy/gi,'').trim();
 
-      ) {
+        this.memoriaAlumno.nombre =
+          nombre;
 
         respuesta =
-        'Para registrarte debes ingresar al sistema SICDE y completar correctamente tu información institucional.';
+          `Mucho gusto ${nombre}. Recordaré tu nombre para futuras consultas.`;
 
       }
 
-      // INFORMES
+      /* CARRERA */
 
-      else if (
+      else if(
+        textoLower.includes('ingenieria') ||
+        textoLower.includes('licenciatura')
+      ){
 
-        texto.includes('informe') ||
-        texto.includes('trimestral') ||
-        texto.includes('evidencia')
-
-      ) {
+        this.memoriaAlumno.carrera =
+          texto;
 
         respuesta =
-        'Los informes trimestrales se suben en el apartado correspondiente dentro de SICDE.';
+          'He guardado tu carrera correctamente.';
 
       }
 
-      // DOCUMENTOS
+      /* CREDITOS */
 
-      else if (
+      else if(
+        textoLower.includes('%')
+      ){
 
-        texto.includes('documento') ||
-        texto.includes('formato') ||
-        texto.includes('requisito')
+        const numero =
+          parseInt(texto);
 
-      ) {
+        if(!isNaN(numero)){
 
-        respuesta =
-        'Necesitas carta de aceptación, formato de inscripción, CURP y seguro facultativo.';
+          this.memoriaAlumno.creditos =
+            numero;
 
-      }
+          if(numero >= 50){
 
-      // LIBERACIÓN
+            respuesta =
+              `Tienes ${numero}% de créditos. Puedes iniciar tu servicio social.`;
 
-      else if (
+          }else{
 
-        texto.includes('liberacion') ||
-        texto.includes('liberar') ||
-        texto.includes('termino')
+            respuesta =
+              `Tienes ${numero}% de créditos. Aún necesitas alcanzar el 50%.`;
 
-      ) {
+          }
 
-        respuesta =
-        'Para liberar tu servicio social debes completar las horas requeridas y entregar la documentación final.';
-
-      }
-
-      // HORAS
-
-      else if (
-
-        texto.includes('horas')
-
-      ) {
-
-        respuesta =
-        'El servicio social requiere cubrir las horas establecidas por tu institución educativa.';
+        }
 
       }
 
-      // FECHAS
+      /* REGISTRO */
 
-      else if (
+      else if(
 
-        texto.includes('fecha') ||
-        texto.includes('cuando')
+        textoLower.includes('registro') ||
+        textoLower.includes('registrar') ||
+        textoLower.includes('sicde')
 
-      ) {
+      ){
 
         respuesta =
-        'Las fechas dependen de la convocatoria publicada por la institución.';
+        'Para registrarte debes ingresar al sistema SICDE y completar tu información institucional.';
 
       }
 
-      // SALUDO
+      /* REQUISITOS */
 
-      else if (
+      else if(
 
-        texto.includes('hola') ||
-        texto.includes('buenas') ||
-        texto.includes('buen día')
+        textoLower.includes('requisito') ||
+        textoLower.includes('documento') ||
+        textoLower.includes('formato')
 
-      ) {
+      ){
 
         respuesta =
-        'Hola. ¿Cómo puedo ayudarte con tu servicio social?';
+        'Necesitas formato de inscripción, carta de aceptación, CURP y seguro facultativo vigente.';
 
       }
 
-      // DESPEDIDA
+      /* INFORMES */
 
-      else if (
+      else if(
 
-        texto.includes('gracias')
+        textoLower.includes('informe') ||
+        textoLower.includes('trimestral')
 
-      ) {
+      ){
 
         respuesta =
-        'Con gusto. Estoy para ayudarte.';
+        'Los informes trimestrales deben entregarse en los periodos establecidos por la institución.';
 
       }
 
-      // DEFAULT
+      /* HORAS */
 
-      else {
+      else if(
+
+        textoLower.includes('horas')
+
+      ){
 
         respuesta =
-        'No encontré información relacionada con tu pregunta. Tu consulta fue registrada para mejorar el sistema.';
-
-        // GUARDAR PREGUNTAS NUEVAS
-
-        const preguntas =
-        JSON.parse(
-          localStorage.getItem('preguntas_nuevas') || '[]'
-        );
-
-        preguntas.push({
-
-          pregunta: texto,
-
-          fecha: new Date()
-
-        });
-
-        localStorage.setItem(
-          'preguntas_nuevas',
-          JSON.stringify(preguntas)
-        );
+        'El servicio social requiere cubrir al menos 480 horas.';
 
       }
 
-      // RESPUESTA BOT
+      /* MEMORIA */
+
+      else if(
+
+        textoLower.includes('quien soy') ||
+        textoLower.includes('recuerdas mi nombre')
+
+      ){
+
+        if(this.memoriaAlumno.nombre){
+
+          respuesta =
+          `Claro. Tu nombre es ${this.memoriaAlumno.nombre}.`;
+
+        }else{
+
+          respuesta =
+          'Todavía no me has dicho tu nombre.';
+
+        }
+
+      }
+
+      /* SALUDO */
+
+      else if(
+
+        textoLower.includes('hola') ||
+        textoLower.includes('buenas')
+
+      ){
+
+        respuesta =
+          this.memoriaAlumno.nombre
+          ? `Hola ${this.memoriaAlumno.nombre}, ¿cómo puedo ayudarte?`
+          : 'Hola, ¿cómo puedo ayudarte?';
+
+      }
+
+      /* DESPEDIDA */
+
+      else if(
+
+        textoLower.includes('gracias')
+
+      ){
+
+        respuesta =
+          'Con gusto. Estoy para ayudarte.';
+
+      }
+
+      /* DEFAULT */
+
+      else{
+
+        respuesta =
+          'No encontré información específica sobre tu consulta.';
+
+      }
 
       this.mensajes.push({
 
-        tipo: 'bot',
+        tipo:'bot',
 
-        texto: respuesta
+        texto:respuesta
 
       });
 
+      this.guardarDatos();
+
       this.cargando = false;
 
-    }, 1000);
+    },800);
+
+  }
+
+  limpiarMemoria(){
+
+    localStorage.removeItem(
+      'chat_historial'
+    );
+
+    localStorage.removeItem(
+      'memoria_alumno'
+    );
+
+    this.memoriaAlumno = {
+
+      nombre:'',
+      carrera:'',
+      creditos:0
+
+    };
+
+    this.mensajes = [
+
+      {
+        tipo:'bot',
+        texto:'Memoria eliminada correctamente.'
+      }
+
+    ];
 
   }
 

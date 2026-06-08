@@ -1,262 +1,335 @@
-.checklist-section {
+/* ==========================
+   CONTENEDOR
+========================== */
 
-  min-height: 100vh;
+.checklist-page{
 
-  padding: 120px 40px;
+  width:100%;
 
-  background:
-  linear-gradient(
-    135deg,
-    #f5f5f5,
-    #ffffff
+  max-width:1000px;
+
+  min-height:100vh;
+
+  margin:0 auto;
+
+  padding:140px 30px 100px;
+  color:inherit;
+
+
+}
+
+/* ==========================
+   TITULO
+========================== */
+
+.checklist-page h1{
+
+  text-align:center;
+
+  font-size:clamp(
+    2.5rem,
+    5vw,
+    4rem
   );
 
-}
+  margin-bottom:10px;
 
-.checklist-section h1 {
-
-  text-align: center;
-
-  font-size: 4rem;
-
-  margin-bottom: 20px;
+  font-weight:700;
 
 }
 
-.checklist-section p {
+/* ==========================
+   SUBTITULO
+========================== */
 
-  text-align: center;
+.checklist-page p{
 
-  font-size: 1.2rem;
+  text-align:center;
 
-  margin-bottom: 50px;
+ color:inherit;
 
-}
 
-.progress-container {
+  font-size:1.1rem;
 
-  width: 100%;
-
-  max-width: 900px;
-
-  height: 40px;
-
-  background: #ddd;
-
-  margin: auto;
-
-  border-radius: 50px;
-
-  overflow: hidden;
-
-  margin-bottom: 60px;
+  margin-bottom:50px;
 
 }
 
-.progress-bar {
+/* ==========================
+   PROGRESO
+========================== */
 
-  height: 100%;
+.progress-container{
+
+  width:100%;
+
+  height:40px;
+
+  background:#1f1f1f;
+
+  border-radius:50px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  margin-bottom:60px;
+
+}
+
+.progress-bar{
+
+  height:100%;
 
   background:
   linear-gradient(
     90deg,
     #2E7D32,
-    #C9A227
+    #43A047
   );
 
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  color: white;
-
-  font-weight: bold;
-
-  transition: .5s;
+  transition:.4s ease;
 
 }
 
-.lista {
+.progress-text{
 
-  max-width: 900px;
+  position:absolute;
 
-  margin: auto;
+  top:50%;
 
-  display: flex;
+  left:50%;
 
-  flex-direction: column;
+  transform:
+  translate(-50%,-50%);
 
-  gap: 20px;
+  color:white;
 
-}
+  font-weight:700;
 
-.item {
-
-  background: white;
-
-  padding: 25px;
-
-  border-radius: 20px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 20px;
-
-  box-shadow: 0 10px 20px rgba(0,0,0,.1);
-
-  transition: .3s;
+  font-size:1rem;
 
 }
 
-.item:hover {
+/* ==========================
+   LISTA
+========================== */
 
-  transform: translateX(10px);
+.lista{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:20px;
+
+}
+
+/* ==========================
+   ITEMS
+========================== */
+
+.item{
+
+  background:#1b1d22;
+
+  border:1px solid #2b2e35;
+
+  border-radius:20px;
+
+  padding:25px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:20px;
+
+  transition:.3s ease;
+
+  box-shadow:
+  0 10px 25px rgba(0,0,0,.25);
 
 }
 
-.item input {
+.item:hover{
 
-  width: 25px;
+  transform:translateY(-4px);
 
-  height: 25px;
+  border-color:#2E7D32;
+
+}
+
+/* ==========================
+   CHECKBOX
+========================== */
+
+.item input{
+
+  width:24px;
+
+  height:24px;
+
+  accent-color:#2E7D32;
+
+  cursor:pointer;
 
 }
 
-.item span {
+/* ==========================
+   TEXTO
+========================== */
 
-  font-size: 1.2rem;
+.item span{
+
+  font-size:1.1rem;
+
+  color:white;
 
 }
-/* RESPONSIVE */
 
-@media screen and (max-width:768px){
+/* ==========================
+   COMPLETADO
+========================== */
 
-  .hero{
+.item.completado{
 
-    padding:40px 20px;
+  background:#152018;
 
-    text-align:center;
+  border:2px solid #2E7D32;
 
-  }
+}
 
-  .overlay{
+.item.completado span{
 
-    width:100%;
+  color:#8fd49a;
 
-  }
+  font-weight:600;
 
-  .overlay h1{
+  text-decoration:line-through;
 
-    font-size:2.8rem !important;
+}
 
-    line-height:1.2;
+/* ==========================
+   RESPONSIVE
+========================== */
 
-  }
+@media(max-width:768px){
 
-  .overlay p{
+  .checklist-page{
 
-    font-size:1rem !important;
-
-    line-height:1.7;
-
-  }
-
-  .overlay button{
-
-    width:100%;
+    padding:120px 20px 80px;
 
   }
 
-  .info-section,
-  .steps-section,
-  .timeline-section{
+  .checklist-page h1{
 
-    padding:100px 20px 70px;
+    font-size:2.3rem;
 
   }
 
-  .info-grid,
-  .timeline,
-  .steps{
-
-    grid-template-columns:1fr !important;
-
-    gap:25px;
-
-  }
-
-  .info-card,
-  .timeline-card,
-  .step{
-
-    width:100%;
-
-  }
-
-  .card-content{
-
-    padding:25px;
-
-  }
-
-  .card-content h3,
-  .timeline-card h2{
-
-    font-size:1.5rem;
-
-  }
-
-  .timeline-header h1,
-  .info-section h2{
-
-    font-size:2.5rem !important;
-
-  }
-
-  .timeline-header p,
-  .info-subtitle{
+  .checklist-page p{
 
     font-size:1rem;
 
   }
 
-  .chatbot-window{
+  .item{
 
-    width:95% !important;
-
-    height:80vh !important;
-
-    right:10px !important;
-
-    bottom:90px !important;
+    padding:20px;
 
   }
 
-  .chat-input{
+  .item span{
 
-    flex-direction:column;
+    font-size:1rem;
 
   }
 
-  .chat-input button{
+}
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width:1024px){
+
+  .checklist-page{
+
+    max-width:90%;
+
+  }
+
+}
+
+/* ==========================
+   MÓVIL
+========================== */
+
+@media (max-width:768px){
+
+  .checklist-page{
 
     width:100%;
 
-  }
-
-  mat-toolbar{
-
-    padding:0 15px !important;
+    padding:110px 15px 70px;
 
   }
 
-  .logo{
+  .progress-container{
 
-    font-size:1.4rem !important;
+    height:35px;
+
+  }
+
+  .item{
+
+    padding:18px;
+
+    gap:15px;
+
+  }
+
+  .item span{
+
+    font-size:1rem;
+
+  }
+
+}
+
+/* ==========================
+   CELULARES PEQUEÑOS
+========================== */
+
+@media (max-width:480px){
+
+  .checklist-page h1{
+
+    font-size:2rem;
+
+  }
+
+  .checklist-page p{
+
+    font-size:.95rem;
+
+  }
+
+  .item{
+
+    padding:15px;
+
+  }
+
+  .item span{
+
+    font-size:.95rem;
+
+  }
+
+  .progress-container{
+
+    height:32px;
 
   }
 

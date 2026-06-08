@@ -1,27 +1,120 @@
-.faq-section {
+/* ==========================
+   FAQ
+========================== */
 
-  padding: 120px 40px;
+.faq-section{
 
-  background: #ffffff;
+  width:100%;
 
-  min-height: 100vh;
+  max-width:1000px;
 
-}
+  margin:0 auto;
 
-.faq-section h1 {
+  min-height:100vh;
 
-  text-align: center;
-
-  font-size: 3rem;
-
-  margin-bottom: 50px;
+  padding:140px 30px 80px;
 
 }
 
-mat-expansion-panel {
+/* ==========================
+   TITULO
+========================== */
 
-  margin-bottom: 20px;
+.faq-section h1{
 
-  border-radius: 10px !important;
+  text-align:center;
+
+  font-size:clamp(
+    2.5rem,
+    5vw,
+    4rem
+  );
+
+  margin-bottom:50px;
+
+  font-weight:700;
+
+}
+
+/* ==========================
+   ACORDEÓN
+========================== */
+
+mat-accordion{
+
+  display:block;
+
+}
+
+mat-expansion-panel{
+
+  margin-bottom:20px;
+
+  border-radius:15px !important;
+
+  overflow:hidden;
+
+  box-shadow:
+  0 5px 20px rgba(0,0,0,.08);
+
+}
+
+mat-expansion-panel-header{
+
+  font-size:1.1rem;
+
+  font-weight:600;
+
+}
+
+mat-expansion-panel p{
+
+  line-height:1.7;
+
+  padding-top:10px;
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+.dark-mode .faq-section h1{
+
+  color:white;
+
+}
+
+.dark-mode mat-expansion-panel{
+
+  background:#1e1e1e;
+
+  color:white;
+
+}
+
+.dark-mode mat-expansion-panel-header{
+
+  color:white;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+  .faq-section{
+
+    padding:120px 20px 60px;
+
+  }
+
+  .faq-section h1{
+
+    font-size:2.3rem;
+
+  }
 
 }
