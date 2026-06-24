@@ -1,101 +1,328 @@
 [
-{
-"keywords":["servicio social","que es servicio social"],
-"respuesta":"El Servicio Social es una actividad formativa y obligatoria que permite a los estudiantes aplicar sus conocimientos en beneficio de la sociedad."
-},
-
-{
-"keywords":["requisitos","que necesito"],
-"respuesta":"Para iniciar tu Servicio Social debes cumplir con los requisitos establecidos por tu institución y presentar la documentación correspondiente."
-},
-
-{
-"keywords":["horas","cuantas horas"],
-"respuesta":"Debes cubrir un mínimo de 480 horas de Servicio Social."
-},
-
-{
-"keywords":["sicde","registro","registrarme"],
-"respuesta":"El registro se realiza mediante el sistema SICDE completando correctamente toda tu información."
-},
-
-{
-"keywords":["50%","creditos"],
-"respuesta":"Generalmente debes haber cubierto al menos el 50% de los créditos de tu plan de estudios."
-},
-
-{
-"keywords":["carta de aceptacion"],
-"respuesta":"La carta de aceptación es el documento emitido por la dependencia donde realizarás tu Servicio Social."
-},
-
-{
-"keywords":["carta de terminacion"],
-"respuesta":"La carta de terminación acredita que concluiste satisfactoriamente tu Servicio Social."
-},
-
-{
-"keywords":["seguro facultativo"],
-"respuesta":"Debes contar con seguro facultativo o cobertura médica vigente durante la realización del Servicio Social."
-},
-
-{
-"keywords":["dependencia","institucion"],
-"respuesta":"La dependencia receptora es la institución donde desarrollarás tus actividades de Servicio Social."
-},
-
-{
-"keywords":["informes","reporte"],
-"respuesta":"Debes entregar los informes solicitados por tu institución en los periodos establecidos."
-},
-
-{
-"keywords":["informe trimestral"],
-"respuesta":"El informe trimestral permite dar seguimiento a tus actividades y avance en el Servicio Social."
-},
-
-{
-"keywords":["liberacion","liberar"],
-"respuesta":"La liberación se obtiene al concluir las horas requeridas y entregar toda la documentación solicitada."
-},
-
-{
-"keywords":["inicio","cuando puedo iniciar"],
-"respuesta":"Puedes iniciar cuando cumplas los requisitos académicos y administrativos establecidos."
-},
-
-{
-"keywords":["suspender","cancelar"],
-"respuesta":"La suspensión o cancelación debe notificarse a la institución y seguir el procedimiento correspondiente."
-},
-
-{
-"keywords":["actividades"],
-"respuesta":"Las actividades deben estar relacionadas con tu formación profesional y beneficiar a la sociedad."
-},
-
-{
-"keywords":["constancia"],
-"respuesta":"La constancia acredita tu participación y cumplimiento de actividades dentro del Servicio Social."
-},
-
-{
-"keywords":["vigencia"],
-"respuesta":"La documentación entregada debe encontrarse vigente y correctamente firmada."
-},
-
-{
-"keywords":["horario"],
-"respuesta":"El horario dependerá de la dependencia receptora y deberá ser autorizado por ambas partes."
-},
-
-{
-"keywords":["beneficios"],
-"respuesta":"El Servicio Social fortalece tus habilidades profesionales y te permite adquirir experiencia práctica."
-},
-
-{
-"keywords":["objetivo"],
-"respuesta":"El objetivo del Servicio Social es contribuir al desarrollo social mediante la aplicación de conocimientos profesionales."
-}
+  {
+    "keywords":["que es servicio social","servicio social","definicion"],
+    "respuesta":"El servicio social es una actividad teórico-práctica obligatoria y temporal realizada en beneficio de la sociedad y el Estado."
+  },
+  {
+    "keywords":["obligatorio","es obligatorio"],
+    "respuesta":"Sí. El servicio social es obligatorio para obtener el título profesional."
+  },
+  {
+    "keywords":["50 por ciento","50%","creditos"],
+    "respuesta":"Debes haber cursado y aprobado al menos el 50% de los créditos de tu plan de estudios."
+  },
+  {
+    "keywords":["area de salud","medicina","enfermeria"],
+    "respuesta":"En el área de la salud debes haber cubierto el 100% del plan de estudios antes de iniciar el servicio social."
+  },
+  {
+    "keywords":["cuantas horas","horas","480 horas"],
+    "respuesta":"El servicio social requiere un mínimo de 480 horas."
+  },
+  {
+    "keywords":["cuanto dura","duracion"],
+    "respuesta":"Debe realizarse en un periodo no menor a 6 meses ni mayor a 2 años."
+  },
+  {
+    "keywords":["extranjero","otro pais"],
+    "respuesta":"Puede realizarse en el extranjero siempre que beneficie a la sociedad mexicana."
+  },
+  {
+    "keywords":["trabajador","empleado","relacion laboral"],
+    "respuesta":"El servicio social no genera una relación laboral con la unidad receptora."
+  },
+  {
+    "keywords":["pagan","apoyo economico","beca"],
+    "respuesta":"Puede existir apoyo económico o retribución en especie si así lo acuerda la unidad receptora."
+  },
+  {
+    "keywords":["partidos politicos","politica"],
+    "respuesta":"Las actividades del servicio social no pueden relacionarse con proselitismo político."
+  },
+  {
+    "keywords":["religion","religioso"],
+    "respuesta":"Las actividades no deben enfocarse en la divulgación de creencias religiosas."
+  },
+  {
+    "keywords":["familiar","pariente","parentesco"],
+    "respuesta":"No puedes realizar tu servicio social si existe parentesco por consanguinidad con la persona responsable de la unidad receptora."
+  },
+  {
+    "keywords":["objetivo","objetivos"],
+    "respuesta":"Uno de los objetivos es aplicar conocimientos profesionales para contribuir al desarrollo social."
+  },
+  {
+    "keywords":["beneficios","para que sirve"],
+    "respuesta":"Permite fortalecer tu formación profesional y desarrollar responsabilidad social."
+  },
+  {
+    "keywords":["solidaridad","valores"],
+    "respuesta":"El servicio social se rige por valores como cooperación, dignidad, honestidad, solidaridad, respeto e igualdad."
+  },
+  {
+    "keywords":["violencia","discriminacion"],
+    "respuesta":"El servicio social debe desarrollarse libre de violencia y discriminación."
+  },
+  {
+    "keywords":["unidad receptora","que es unidad receptora"],
+    "respuesta":"Es la institución, dependencia u organización autorizada donde realizarás tu servicio social."
+  },
+  {
+    "keywords":["egresado","egresados"],
+    "respuesta":"Los egresados también están obligados a realizar servicio social para obtener el título profesional."
+  },
+  {
+    "keywords":["tecnico superior universitario","tsu"],
+    "respuesta":"Los estudiantes de Técnico Superior Universitario también deben cumplir con el servicio social."
+  },
+  {
+    "keywords":["titulo profesional","titulacion"],
+    "respuesta":"El servicio social es un requisito para obtener el título profesional."
+  }
+]
+[
+  {
+    "keywords":["requisitos"],
+    "respuesta":"Debes cumplir con los requisitos académicos, administrativos y documentales establecidos por la Universidad."
+  },
+  {
+    "keywords":["imss","seguro facultativo"],
+    "respuesta":"Debes contar con afiliación vigente al IMSS mientras realizas tu servicio social."
+  },
+  {
+    "keywords":["egresado sin imss"],
+    "respuesta":"Los egresados deben presentar una carta responsiva para asumir la atención médica por cuenta propia."
+  },
+  {
+    "keywords":["sesion informativa"],
+    "respuesta":"Debes asistir obligatoriamente a la sesión informativa e inducción al servicio social."
+  },
+  {
+    "keywords":["unidad receptora aceptacion"],
+    "respuesta":"Debes haber sido aceptado por una unidad receptora legalmente constituida."
+  },
+  {
+    "keywords":["solicitud"],
+    "respuesta":"Debes presentar la solicitud mediante el formato y medio establecido por la Universidad."
+  },
+  {
+    "keywords":["tramite"],
+    "respuesta":"Todos los trámites deben realizarse en el área de servicio social de tu espacio académico."
+  },
+  {
+    "keywords":["carta de presentacion"],
+    "respuesta":"La carta de presentación es emitida por el responsable de servicio social una vez aprobado tu trámite."
+  },
+  {
+    "keywords":["cinco dias","5 dias"],
+    "respuesta":"La carta de presentación debe emitirse en un plazo no mayor a cinco días hábiles."
+  },
+  {
+    "keywords":["diez dias","10 dias"],
+    "respuesta":"Tienes diez días hábiles para entregar la carta de aceptación firmada por la unidad receptora."
+  },
+  {
+    "keywords":["sin tramite"],
+    "respuesta":"Las actividades realizadas sin iniciar formalmente el trámite no serán reconocidas."
+  },
+  {
+    "keywords":["sicde"],
+    "respuesta":"El registro debe realizarse siguiendo el procedimiento institucional establecido para el servicio social."
+  },
+  {
+    "keywords":["documentos"],
+    "respuesta":"Debes presentar la documentación requerida por el área de servicio social."
+  },
+  {
+    "keywords":["aceptacion"],
+    "respuesta":"La unidad receptora debe formalizar tu aceptación mediante la documentación correspondiente."
+  },
+  {
+    "keywords":["expediente"],
+    "respuesta":"Una vez entregados los documentos se integrará tu expediente de servicio social."
+  },
+  {
+    "keywords":["induccion"],
+    "respuesta":"La sesión de inducción puede realizarse de manera presencial o en línea."
+  },
+  {
+    "keywords":["inicio servicio"],
+    "respuesta":"Debes completar todos los requisitos antes de iniciar formalmente el servicio social."
+  },
+  {
+    "keywords":["quien revisa"],
+    "respuesta":"La persona responsable de servicio social revisará tu documentación."
+  },
+  {
+    "keywords":["registro formal"],
+    "respuesta":"Debes iniciar formalmente el trámite para que las horas sean válidas."
+  },
+  {
+    "keywords":["aceptado"],
+    "respuesta":"Necesitas ser aceptado por una unidad receptora autorizada."
+  }
+]
+[
+  {
+    "keywords":["informe final"],
+    "respuesta":"Debes presentar un informe final describiendo actividades, impacto social, impacto profesional y resultados obtenidos."
+  },
+  {
+    "keywords":["informes trimestrales"],
+    "respuesta":"Debes entregar informes trimestrales durante la prestación del servicio social."
+  },
+  {
+    "keywords":["cada cuanto informe"],
+    "respuesta":"Los informes deben presentarse trimestralmente y al finalizar el servicio social."
+  },
+  {
+    "keywords":["visto bueno"],
+    "respuesta":"Los informes deben contar con el visto bueno del responsable de la unidad receptora."
+  },
+  {
+    "keywords":["carta terminacion"],
+    "respuesta":"La carta de terminación debe acompañar al informe final."
+  },
+  {
+    "keywords":["mis actividades cambiaron"],
+    "respuesta":"Debes informar inmediatamente al responsable de servicio social cuando cambien las actividades autorizadas."
+  },
+  {
+    "keywords":["actividades diferentes"],
+    "respuesta":"Las actividades distintas a las autorizadas pueden considerarse nulas."
+  },
+  {
+    "keywords":["mis horas cuentan"],
+    "respuesta":"Las horas únicamente serán válidas cuando se realicen dentro del programa autorizado."
+  },
+  {
+    "keywords":["mis actividades"],
+    "respuesta":"Las actividades deben corresponder al programa o proyecto autorizado."
+  },
+  {
+    "keywords":["mis reportes"],
+    "respuesta":"Los reportes permiten verificar el avance y cumplimiento del servicio social."
+  },
+  {
+    "keywords":["seguimiento"],
+    "respuesta":"La Universidad puede dar seguimiento al desempeño del prestador durante el servicio social."
+  },
+  {
+    "keywords":["responsable unidad receptora"],
+    "respuesta":"La persona responsable supervisará y validará las actividades realizadas."
+  },
+  {
+    "keywords":["horas registradas"],
+    "respuesta":"Las horas deben registrarse conforme al programa autorizado."
+  },
+  {
+    "keywords":["evidencias"],
+    "respuesta":"Las evidencias de actividades pueden ser solicitadas para validar tu servicio social."
+  },
+  {
+    "keywords":["supervision"],
+    "respuesta":"La prestación del servicio social está sujeta a supervisión institucional."
+  },
+  {
+    "keywords":["evaluacion"],
+    "respuesta":"La Universidad puede evaluar el cumplimiento de las actividades establecidas."
+  },
+  {
+    "keywords":["conclusion"],
+    "respuesta":"Para concluir debes completar horas, entregar informes y presentar carta de terminación."
+  },
+  {
+    "keywords":["terminar servicio"],
+    "respuesta":"Debes concluir todas las actividades programadas y entregar la documentación requerida."
+  },
+  {
+    "keywords":["impacto social"],
+    "respuesta":"El informe final debe describir el impacto social generado por tus actividades."
+  },
+  {
+    "keywords":["impacto profesional"],
+    "respuesta":"El informe final debe incluir el impacto profesional obtenido durante el servicio social."
+  }
+]
+[
+  {
+    "keywords":["cancelacion"],
+    "respuesta":"El servicio social puede cancelarse por incumplimiento, abandono o solicitud del prestador."
+  },
+  {
+    "keywords":["interrumpir servicio"],
+    "respuesta":"Puedes solicitar la interrupción mediante escrito dirigido al responsable de servicio social."
+  },
+  {
+    "keywords":["cuanto tiempo puedo interrumpir"],
+    "respuesta":"La interrupción no puede ser mayor a tres meses."
+  },
+  {
+    "keywords":["deje de asistir"],
+    "respuesta":"Si faltas más de tres veces consecutivas sin aviso, el servicio social puede cancelarse."
+  },
+  {
+    "keywords":["abandono"],
+    "respuesta":"El abandono injustificado puede provocar la cancelación del servicio social."
+  },
+  {
+    "keywords":["baja definitiva"],
+    "respuesta":"La baja definitiva del alumno puede ocasionar la cancelación del servicio social."
+  },
+  {
+    "keywords":["incumplimiento informes"],
+    "respuesta":"El incumplimiento en la entrega de informes puede provocar la cancelación."
+  },
+  {
+    "keywords":["cambio unidad receptora"],
+    "respuesta":"Puedes solicitar cambio de unidad receptora conforme a la normatividad vigente."
+  },
+  {
+    "keywords":["maltrato"],
+    "respuesta":"Tienes derecho a solicitar reasignación cuando exista maltrato."
+  },
+  {
+    "keywords":["acoso"],
+    "respuesta":"Puedes solicitar reasignación inmediata si existe acoso u hostigamiento."
+  },
+  {
+    "keywords":["violencia laboral"],
+    "respuesta":"La Universidad protege a los prestadores frente a situaciones de violencia."
+  },
+  {
+    "keywords":["discriminacion"],
+    "respuesta":"Tienes derecho a desarrollar tu servicio social en un ambiente libre de discriminación."
+  },
+  {
+    "keywords":["ambiente seguro"],
+    "respuesta":"La unidad receptora debe proporcionar condiciones adecuadas de seguridad e higiene."
+  },
+  {
+    "keywords":["asesoria"],
+    "respuesta":"Tienes derecho a recibir asesoría profesional o académica."
+  },
+  {
+    "keywords":["elegir unidad receptora"],
+    "respuesta":"Puedes elegir la unidad receptora respetando los requisitos institucionales."
+  },
+  {
+    "keywords":["proponer unidad receptora"],
+    "respuesta":"Puedes proponer nuevas unidades receptoras para realizar tu servicio social."
+  },
+  {
+    "keywords":["apoyo economico"],
+    "respuesta":"Puedes recibir apoyo económico o retribución en especie cuando exista acuerdo con la unidad receptora."
+  },
+  {
+    "keywords":["reconocimiento"],
+    "respuesta":"La Universidad puede otorgar reconocimientos por proyectos de impacto sobresaliente."
+  },
+  {
+    "keywords":["certificado servicio social"],
+    "respuesta":"Al concluir y cumplir los requisitos podrás obtener tu Certificado de Servicio Social."
+  },
+  {
+    "keywords":["derechos"],
+    "respuesta":"Tienes derecho a información, asesoría, respeto, seguridad, reconocimiento y certificación."
+  }
 ]
