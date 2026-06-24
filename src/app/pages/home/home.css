@@ -10,8 +10,13 @@
 
   padding:140px 40px 80px;
 
-  background:#f5f5f5;
-
+  background:
+  linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f7f9f8 60%,
+    #eef5f0 100%
+  );
 }
 
 /* ==========================
@@ -20,11 +25,37 @@
 
 .home-header{
 
-  max-width:900px;
+  max-width:950px;
 
-  margin:0 auto 70px;
+  margin:0 auto 80px;
 
   text-align:center;
+
+}
+
+.home-header h1{
+
+  font-size:clamp(
+    3rem,
+    5vw,
+    5rem
+  );
+
+  font-weight:800;
+
+  color:#1B5E20;
+
+  letter-spacing:-1px;
+
+}
+
+.home-header p{
+
+  color:#555;
+
+  font-size:1.25rem;
+
+  line-height:1.8;
 
 }
 
@@ -77,26 +108,60 @@
 
   background:white;
 
-  border-radius:25px;
+  border-radius:24px;
 
   overflow:hidden;
 
   cursor:pointer;
 
-  transition:.35s ease;
+  position:relative;
+
+  transition:.35s;
+
+  border:1px solid #ECECEC;
 
   box-shadow:
-  0 10px 30px rgba(0,0,0,.08);
+
+  0 15px 40px rgba(0,0,0,.08);
+
+}
+.card::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:6px;
+
+  background:
+
+  linear-gradient(
+
+  90deg,
+
+  #2E7D32,
+
+  #4CAF50
+
+  );
 
 }
 
 .card:hover{
 
   transform:
-  translateY(-10px);
+
+  translateY(-12px);
 
   box-shadow:
-  0 20px 40px rgba(0,0,0,.15);
+
+  0 25px 55px rgba(0,0,0,.15);
 
 }
 
@@ -114,35 +179,37 @@
 
   width:100%;
 
-  height:240px;
+  height:230px;
 
   object-fit:cover;
 
-  display:block;
+  transition:.45s;
 
 }
+.card:hover img{
 
+  transform:scale(1.05);
+
+}
 /* ==========================
    CONTENIDO
 ========================== */
 
 .card-content{
 
-  padding:25px;
+  padding:30px;
 
 }
 
 .card-content h2{
 
-  font-size: 2.2rem;
+  font-size:2rem;
 
-  line-height: 1.1;
+  color:#1B5E20;
 
-  margin-bottom: 15px;
+  font-weight:700;
 
-  color: #111;
-
-  font-weight: 700;
+  margin-bottom:15px;
 
 }
 
@@ -150,7 +217,7 @@
 
   color:#666;
 
-  line-height:1.6;
+  line-height:1.8;
 
 }
 
@@ -160,11 +227,11 @@
 
 .card-expand{
 
-  padding:20px 25px 25px;
+  margin-top:20px;
 
-  border-top:1px solid #e0e0e0;
+  padding-top:20px;
 
-  animation:expandCard .4s ease;
+  border-top:1px solid #E6E6E6;
 
 }
 
@@ -178,17 +245,64 @@
 
 .card-expand ul{
 
-  padding-left:20px;
+  list-style:none;
+
+  padding:0;
 
 }
 
 .card-expand li{
 
-  margin-bottom:10px;
+  padding:10px 0;
 
-  line-height:1.6;
+  border-bottom:1px solid #F0F0F0;
 
-  color:#444;
+}
+.card-expand a{
+
+  color:#2E7D32;
+
+  font-weight:600;
+
+  text-decoration:none;
+
+  transition:.3s;
+
+}
+
+.card-expand a:hover{
+
+  color:#C7A34B;
+
+  padding-left:8px;
+
+}
+.card{
+
+  animation:fadeCard .7s ease;
+
+}
+@keyframes fadeCard{
+
+  from{
+
+    opacity:0;
+
+    transform:
+
+    translateY(40px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+
+    translateY(0);
+
+  }
 
 }
 

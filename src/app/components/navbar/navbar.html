@@ -1,78 +1,72 @@
-<mat-toolbar>
+
+<mat-toolbar class="navbar">
 
   <!-- LOGO -->
 
-  <div class="logo">
+  <div class="logo-container">
 
-    Servicio Social
+    <img
+      src="assets/img/logo-uaemex.png"
+      alt="UAEMéx"
+      class="logo-img"
+    >
+
+    <div class="logo-text">
+
+      <span class="titulo">
+        Servicio Social
+      </span>
+
+      <span class="subtitulo">
+        Plataforma Inteligente UAEMéx
+      </span>
+
+    </div>
 
   </div>
 
   <span class="spacer"></span>
 
-  <!-- DESKTOP -->
+  <!-- MENÚ DESKTOP -->
 
   <div class="desktop-menu">
 
-    <button
-      mat-button
-      routerLink="/"
-    >
+    <button mat-button routerLink="/">
       Inicio
     </button>
 
-    <button
-      mat-button
-      routerLink="/proceso"
-    >
+    <button mat-button routerLink="/proceso">
+      Proceso
+    </button>
+
+    <button mat-button routerLink="/requisitos">
       Requisitos
     </button>
 
-    <button
-      mat-button
-      routerLink="/requisitos"
-    >
-       Tips
-    </button>
-
-    <button
-      mat-button
-      routerLink="/tutorial"
-    >
+    <button mat-button routerLink="/tutorial">
       Tutoriales
     </button>
 
-    <button
-      mat-button
-      routerLink="/checklist"
-    >
+    <button mat-button routerLink="/checklist">
       Checklist
     </button>
 
-    <button
-      mat-button
-      routerLink="/faq"
-    >
+    <button mat-button routerLink="/faq">
       FAQ
     </button>
 
-    <!-- CHATBOT -->
-
     <button
-      mat-button
-      routerLink="/chatbot"
+      mat-flat-button
+      color="primary"
       class="chatbot-btn"
+      routerLink="/chatbot"
     >
-      Asistente
+      Asistente IA
     </button>
-
-    <!-- DARK MODE -->
-
-    
 
   </div>
 
-  <!-- MOBILE BUTTON -->
+  <!-- MENÚ MÓVIL -->
 
   <button
     mat-icon-button
@@ -80,15 +74,11 @@
     (click)="menuAbierto = !menuAbierto"
   >
 
-    <mat-icon>
-      menu
-    </mat-icon>
+    <mat-icon>menu</mat-icon>
 
   </button>
 
 </mat-toolbar>
-
-<!-- MOBILE MENU -->
 
 <div
   class="mobile-menu"
@@ -144,24 +134,14 @@
   </button>
 
   <button
-    mat-button
-    routerLink="/chatbot"
+    mat-flat-button
+    color="primary"
     class="chatbot-btn"
+    routerLink="/chatbot"
     (click)="menuAbierto = false"
   >
-    Asistente
-  </button>
-
-  <!-- DARK MODE MOBILE -->
-
-  <button
-    mat-button
-    class="dark-btn"
-    (click)="toggleDarkMode()"
-  >
-
-    {{ darkMode ? 'Modo Claro' : 'Modo Oscuro' }}
-
+    Asistente IA
   </button>
 
 </div>
+
