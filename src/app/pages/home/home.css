@@ -134,11 +134,15 @@
 
 .card-content h2{
 
-  font-size:2rem;
+  font-size: 2.2rem;
 
-  color:#111;
+  line-height: 1.1;
 
-  margin-bottom:12px;
+  margin-bottom: 15px;
+
+  color: #111;
+
+  font-weight: 700;
 
 }
 

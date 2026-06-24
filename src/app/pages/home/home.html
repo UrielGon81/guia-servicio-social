@@ -2,220 +2,238 @@
 
   <div class="home-header">
 
-    <h1>
-      Plataforma de Servicio Social
-    </h1>
 
-    <p>
-      Gestiona tu servicio social de manera rápida y sencilla.
-    </p>
+<h1>
+  Plataforma de Servicio Social
+</h1>
+
+<p>
+  Consulta información, conoce el reglamento y realiza tu proceso de Servicio Social de forma sencilla.
+</p>
+
 
   </div>
 
   <div class="cards-container">
 
-    <!-- PROCESO -->
+<!-- PROCESO -->
+
+<div
+  class="card"
+  [class.active]="tarjetaActiva === 'proceso'"
+  (click)="abrirTarjeta('proceso')"
+>
+
+  <img
+    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+    alt="Proceso"
+  >
+
+  <div class="card-content">
+
+    <h2>Proceso</h2>
+
+    <p>
+      Conoce paso a paso cómo realizar tu Servicio Social.
+    </p>
 
     <div
-      class="card"
-      [class.active]="tarjetaActiva === 'proceso'"
-      (click)="abrirTarjeta('proceso')"
+      class="card-expand"
+      *ngIf="tarjetaActiva === 'proceso'"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-        alt="Proceso"
-      >
+      <h3>Etapas principales</h3>
 
-      <div class="card-content">
+      <ul>
 
-        <h2>Proceso</h2>
-
-        <p>
-          Consulta cada etapa del trámite.
-        </p>
-
-        <div
-          class="card-expand"
-          *ngIf="tarjetaActiva === 'proceso'"
-        >
-
-          <h3>Etapas del proceso</h3>
-
-          <ul>
-
-           <li>
-           <a
+        <li>
+          <a
             href="https://controlescolar.uaemex.mx/dce/sicde/publico/alumnos/indexLogin.html"
             target="_blank"
-            >
-             Registro en SICDE
-             </a>
-            </li>
+          >
+            Registro en SICDE
+          </a>
+        </li>
 
-            <li>Entrega de documentación.</li>
+        <li>Entrega de documentación.</li>
 
-            <li>Asignación de dependencia.</li>
+        <li>Asignación de unidad receptora.</li>
 
-            <li>Inicio de actividades.</li>
+        <li>Inicio del Servicio Social.</li>
 
-            <li>Entrega de informes.</li>
+        <li>Entrega de informes trimestrales.</li>
 
-            <li>Liberación del servicio social.</li>
+        <li>Liberación y certificado.</li>
 
-          </ul>
-
-        </div>
-
-      </div>
+      </ul>
 
     </div>
 
-    <!-- REQUISITOS -->
+  </div>
+
+</div>
+
+<!-- REQUISITOS -->
+
+<div
+  class="card"
+  [class.active]="tarjetaActiva === 'requisitos'"
+  (click)="abrirTarjeta('requisitos')"
+>
+
+  <img
+    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+    alt="Requisitos"
+  >
+
+  <div class="card-content">
+
+    <h2>Requisitos</h2>
+
+    <p>
+      Consulta la documentación necesaria para iniciar tu trámite.
+    </p>
 
     <div
-      class="card"
-      [class.active]="tarjetaActiva === 'requisitos'"
-      (click)="abrirTarjeta('requisitos')"
+      class="card-expand"
+      *ngIf="tarjetaActiva === 'requisitos'"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
-        alt="Requisitos"
-      >
+      <h3>Documentación requerida</h3>
 
-      <div class="card-content">
+      <ul>
 
-        <h2>Requisitos</h2>
-
-        <p>
-          Documentos y formatos necesarios.
-        </p>
-
-        <div
-          class="card-expand"
-          *ngIf="tarjetaActiva === 'requisitos'"
-        >
-
-          <h3>Documentación requerida</h3>
-
-          <ul>
-
-           <li>
-           <a
+        <li>
+          <a
             href="https://sevepe.uaemex.mx/servicios/servicio-social"
             target="_blank"
-            >
-             Formatos DE inscripción y aceptación.
-             </a>
-            </li>
-            <li>Carta de aceptación.</li>
+          >
+            Formatos oficiales
+          </a>
+        </li>
 
-            <li>CURP actualizada.</li>
+        <li>Carta de aceptación.</li>
 
-            <li>Historial académico.</li>
+        <li>CURP actualizada.</li>
 
-            <li>Informes trimestrales.</li>
+        <li>Historial académico.</li>
 
-          </ul>
+        <li>Seguro facultativo vigente.</li>
 
-        </div>
+        <li>Informes trimestrales.</li>
 
-      </div>
+      </ul>
 
     </div>
 
-    <!-- TUTORIALES -->
+  </div>
+
+</div>
+
+<!-- TUTORIALES -->
+
+<div
+  class="card"
+  [class.active]="tarjetaActiva === 'tutoriales'"
+  (click)="abrirTarjeta('tutoriales')"
+>
+
+  <img
+    src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+    alt="Tutoriales"
+  >
+
+  <div class="card-content">
+
+    <h2>Tutoriales</h2>
+
+    <p>
+      Aprende mediante videos cada etapa del proceso.
+    </p>
 
     <div
-      class="card"
-      [class.active]="tarjetaActiva === 'tutoriales'"
-      (click)="abrirTarjeta('tutoriales')"
+      class="card-expand"
+      *ngIf="tarjetaActiva === 'tutoriales'"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1552664730-d307ca884978"
-        alt="Tutoriales"
-      >
+      <h3>Videos disponibles</h3>
 
-      <div class="card-content">
+      <ul>
 
-        <h2>Tutoriales</h2>
+        <li>Registro en SICDE.</li>
 
-        <p>
-          Aprende mediante videos y guías.
-        </p>
+        <li>Entrega de informes.</li>
+        <li>Liberación del Servicio Social.</li>
 
-        <div
-          class="card-expand"
-          *ngIf="tarjetaActiva === 'tutoriales'"
-        >
-
-          <h3>Tutoriales disponibles</h3>
-
-          <ul>
-
-            <li>Registro en SICDE.</li>
-
-            <li>Generación de reportes.</li>
-
-            <li>Entrega de informes.</li>
-
-            <li>Proceso de liberación.</li>
-
-          </ul>
-
-        </div>
-
-      </div>
+      </ul>
 
     </div>
 
-    <!-- ASISTENTE -->
+  </div>
+
+</div>
+
+<!-- REGLAMENTO -->
+
+<div
+  class="card"
+  [class.active]="tarjetaActiva === 'asistente'"
+  (click)="abrirTarjeta('asistente')"
+>
+
+  <img
+    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+    alt="Reglamento"
+  >
+
+  <div class="card-content">
+
+    <h2>Reglamento General</h2>
+
+    <p>
+      Consulta la normatividad oficial del Servicio Social.
+    </p>
 
     <div
-      class="card"
-      [class.active]="tarjetaActiva === 'asistente'"
-      (click)="abrirTarjeta('asistente')"
+      class="card-expand"
+      *ngIf="tarjetaActiva === 'asistente'"
     >
 
-      <img
-        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
-        alt="Asistente Virtual"
-      >
+      <h3>Contenido del reglamento</h3>
 
-      <div class="card-content">
+      <ul>
 
-        <h2>Asistente Virtual</h2>
+        <li>Objetivos del Servicio Social.</li>
 
-        <p>
-          Resuelve tus dudas rápidamente.
-        </p>
+        <li>Requisitos de inscripción.</li>
 
-        <div
-          class="card-expand"
-          *ngIf="tarjetaActiva === 'asistente'"
-        >
+        <li>Derechos y obligaciones.</li>
 
-          <h3>¿Qué puede hacer?</h3>
+        <li>Registro mediante SICDE.</li>
 
-          <ul>
+        <li>Informes y seguimiento.</li>
 
-            <li>Responder preguntas frecuentes.</li>
+        <li>Proceso de liberación.</li>
 
-            <li>Explicar requisitos.</li>
+        <li>Disposiciones generales.</li>
 
-            <li>Ayudar con informes.</li>
+        <li>
+          <a
+            href="assets/Archivos/ReglamentoServicioSocial.pdf"
+            target="_blank"
+          >
+            📄 Descargar Reglamento General
+          </a>
+        </li>
 
-            <li>Orientar sobre el proceso.</li>
-
-          </ul>
-
-        </div>
-
-      </div>
+      </ul>
 
     </div>
+
+  </div>
+
+</div>
+
 
   </div>
 
