@@ -1,0 +1,170 @@
+<section class="espacios-section">
+
+  <div class="espacios-header">
+    <h1>Espacios Disponibles para Servicio Social</h1>
+    <p>Conoce dónde puedes realizar tu servicio social en las diferentes áreas de la UAEMéx</p>
+  </div>
+
+  <div class="espacios-container">
+
+    <!-- MAPA INTERACTIVO SVG -->
+    <div class="mapa-container">
+      <svg class="mapa-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- Fondo del campus -->
+        <rect width="800" height="600" fill="#E8F5E9"/>
+        
+        <!-- Edificios del campus -->
+        <g id="edificios">
+          
+          <!-- Biblioteca -->
+          <rect x="100" y="80" width="120" height="100" fill="#C8E6C9" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="160" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Biblioteca</text>
+          
+          <!-- Centro de Cómputo -->
+          <rect x="300" y="80" width="120" height="100" fill="#A5D6A7" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="360" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Centro de<tspan x="360" dy="16">Cómputo</tspan></text>
+          
+          <!-- Laboratorios -->
+          <rect x="500" y="80" width="120" height="100" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="560" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Laboratorios</text>
+          
+          <!-- Rectoría -->
+          <rect x="650" y="80" width="120" height="100" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="710" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Rectoría</text>
+          
+          <!-- Centro de Idiomas -->
+          <rect x="100" y="250" width="140" height="110" fill="#A5D6A7" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="170" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Centro de<tspan x="170" dy="16">Idiomas</tspan></text>
+          
+          <!-- Oficinas Administrativas -->
+          <rect x="320" y="250" width="140" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="390" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Oficinas<tspan x="390" dy="16">Admin.</tspan></text>
+          
+          <!-- Departamento de Vinculación -->
+          <rect x="540" y="250" width="140" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="610" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Vinculación<tspan x="610" dy="16">Social</tspan></text>
+          
+          <!-- Centro Cultural -->
+          <rect x="100" y="420" width="140" height="110" fill="#A5D6A7" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="170" y="480" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Centro<tspan x="170" dy="16">Cultural</tspan></text>
+          
+          <!-- Cafetería / Servicios -->
+          <rect x="320" y="420" width="140" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="390" y="480" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Servicios<tspan x="390" dy="16">Estudiantiles</tspan></text>
+          
+          <!-- Deportes y Recreación -->
+          <rect x="540" y="420" width="140" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8"/>
+          <text x="610" y="480" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Deportes &<tspan x="610" dy="16">Recreación</tspan></text>
+          
+        </g>
+
+        <!-- Iconos interactivos (círculos clickeables) -->
+        <g id="puntos-interes" class="puntos-interes">
+          <circle class="punto-interes" cx="160" cy="130" r="8" data-espacio="biblioteca" (click)="seleccionarEspacio('biblioteca')"/>
+          <circle class="punto-interes" cx="360" cy="130" r="8" data-espacio="computo" (click)="seleccionarEspacio('computo')"/>
+          <circle class="punto-interes" cx="560" cy="130" r="8" data-espacio="laboratorios" (click)="seleccionarEspacio('laboratorios')"/>
+          <circle class="punto-interes" cx="710" cy="130" r="8" data-espacio="rectoria" (click)="seleccionarEspacio('rectoria')"/>
+          <circle class="punto-interes" cx="170" cy="305" r="8" data-espacio="idiomas" (click)="seleccionarEspacio('idiomas')"/>
+          <circle class="punto-interes" cx="390" cy="305" r="8" data-espacio="admin" (click)="seleccionarEspacio('admin')"/>
+          <circle class="punto-interes" cx="610" cy="305" r="8" data-espacio="vinculacion" (click)="seleccionarEspacio('vinculacion')"/>
+          <circle class="punto-interes" cx="170" cy="475" r="8" data-espacio="cultural" (click)="seleccionarEspacio('cultural')"/>
+          <circle class="punto-interes" cx="390" cy="475" r="8" data-espacio="servicios" (click)="seleccionarEspacio('servicios')"/>
+          <circle class="punto-interes" cx="610" cy="475" r="8" data-espacio="deportes" (click)="seleccionarEspacio('deportes')"/>
+        </g>
+
+      </svg>
+
+      <!-- Leyenda -->
+      <div class="mapa-leyenda">
+        <div class="leyenda-item">
+          <span class="leyenda-color" style="background: #C8E6C9;"></span>
+          <span>Área Académica</span>
+        </div>
+        <div class="leyenda-item">
+          <span class="leyenda-color" style="background: #A5D6A7;"></span>
+          <span>Área de Servicios</span>
+        </div>
+        <div class="leyenda-item">
+          <span class="leyenda-color" style="background: #81C784;"></span>
+          <span>Área Administrativa</span>
+        </div>
+        <div class="leyenda-item">
+          <span class="leyenda-color" style="background: #66BB6A;"></span>
+          <span>Área Especializada</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INFORMACIÓN DEL ESPACIO SELECCIONADO -->
+    <div class="espacios-info">
+      
+      <div *ngIf="espacioSeleccionado" class="espacio-detalle">
+        
+        <h2>{{ espacioSeleccionado.nombre }}</h2>
+        
+        <div class="espacio-badge">
+          <span class="categoria">{{ espacioSeleccionado.categoria }}</span>
+          <span class="disponibilidad" [ngClass]="'disponibilidad-' + espacioSeleccionado.disponibilidad">
+            {{ espacioSeleccionado.disponibilidad === 'disponible' ? '✓ Disponible' : '⏳ Limitado' }}
+          </span>
+        </div>
+
+        <p class="espacio-descripcion">{{ espacioSeleccionado.descripcion }}</p>
+
+        <div class="espacio-detalles">
+          
+          <div class="detalle-item">
+            <span class="detalle-icono">📍</span>
+            <div>
+              <strong>Ubicación</strong>
+              <p>{{ espacioSeleccionado.ubicacion }}</p>
+            </div>
+          </div>
+
+          <div class="detalle-item">
+            <span class="detalle-icono">👥</span>
+            <div>
+              <strong>Responsable</strong>
+              <p>{{ espacioSeleccionado.responsable }}</p>
+            </div>
+          </div>
+
+          <div class="detalle-item">
+            <span class="detalle-icono">📞</span>
+            <div>
+              <strong>Contacto</strong>
+              <p>{{ espacioSeleccionado.contacto }}</p>
+            </div>
+          </div>
+
+          <div class="detalle-item">
+            <span class="detalle-icono">📋</span>
+            <div>
+              <strong>Actividades</strong>
+              <p>{{ espacioSeleccionado.actividades }}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="btn-solicitar" (click)="solicitar(espacioSeleccionado)">
+          Solicitar Servicio Social
+        </button>
+
+      </div>
+
+      <div *ngIf="!espacioSeleccionado" class="espacio-placeholder">
+        <div class="placeholder-content">
+          <span class="placeholder-icon">🗺️</span>
+          <h3>Selecciona un espacio</h3>
+          <p>Haz clic en cualquier área del mapa para ver más información sobre las oportunidades de servicio social disponibles.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

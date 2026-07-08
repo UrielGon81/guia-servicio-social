@@ -1,21 +1,16 @@
 /* ==========================
-   HOME
+   HOME SECTION
 ========================== */
 
-.home-section{
-
-  width:100%;
-
-  min-height:100vh;
-
-  padding:140px 40px 80px;
-
-  background:
-  linear-gradient(
+.home-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 140px 40px 80px;
+  background: linear-gradient(
     180deg,
-    #ffffff 0%,
-    #f7f9f8 60%,
-    #eef5f0 100%
+    #FFFFFF 0%,
+    #F8FAF9 45%,
+    #EEF5F0 100%
   );
 }
 
@@ -23,440 +18,516 @@
    HEADER
 ========================== */
 
-.home-header{
-
-  max-width:950px;
-
-  margin:0 auto 80px;
-
-  text-align:center;
-
+.home-header {
+  max-width: 900px;
+  margin: 0 auto 70px;
+  text-align: center;
 }
 
-.home-header h1{
-
-  font-size:clamp(
-    3rem,
-    5vw,
-    5rem
-  );
-
-  font-weight:800;
-
-  color:#1B5E20;
-
-  letter-spacing:-1px;
-
+.home-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #00693E;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
-.home-header p{
-
-  color:#555;
-
-  font-size:1.25rem;
-
-  line-height:1.8;
-
+.home-header h1::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: #C9A227;
+  margin: 18px auto 0;
+  border-radius: 50px;
 }
 
-.home-header h1{
-
-  font-size:clamp(
-    3rem,
-    5vw,
-    5rem
-  );
-
-  font-weight:700;
-
-  line-height:1.1;
-
-  color:#111;
-
-  margin-bottom:15px;
-
-}
-
-.home-header p{
-
-  font-size:1.2rem;
-
-  color:#666;
-
+.home-header p {
+  max-width: 720px;
+  margin: auto;
+  color: #5B6670;
+  font-size: 1.1rem;
+  line-height: 1.9;
 }
 
 /* ==========================
-   TARJETAS
+   CONTENEDOR DE TARJETAS
+   (3 columnas en desktop, 2 en tablet, 1 en móvil)
 ========================== */
 
-.cards-container{
-
-  max-width:1400px;
-
-  margin:0 auto;
-
-  display:grid;
-
-  grid-template-columns:
-  repeat(4,minmax(280px,1fr));
-
-  gap:30px;
-
-}
-
-.card{
-
-  background:white;
-
-  border-radius:24px;
-
-  overflow:hidden;
-
-  cursor:pointer;
-
-  position:relative;
-
-  transition:.35s;
-
-  border:1px solid #ECECEC;
-
-  box-shadow:
-
-  0 15px 40px rgba(0,0,0,.08);
-
-}
-.card::before{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-
-  left:0;
-
-  width:100%;
-
-  height:6px;
-
-  background:
-
-  linear-gradient(
-
-  90deg,
-
-  #2E7D32,
-
-  #4CAF50
-
-  );
-
-}
-
-.card:hover{
-
-  transform:
-
-  translateY(-12px);
-
-  box-shadow:
-
-  0 25px 55px rgba(0,0,0,.15);
-
-}
-
-.card.active{
-
-  border:2px solid #2E7D32;
-
+.cards-container {
+  max-width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  padding: 0 40px;
 }
 
 /* ==========================
-   IMAGEN
+   TARJETA INDIVIDUAL
 ========================== */
 
-.card img{
-
-  width:100%;
-
-  height:230px;
-
-  object-fit:cover;
-
-  transition:.45s;
-
+.card {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid #E6ECEA;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: fadeCard 0.7s ease;
+  display: flex;
+  flex-direction: column;
+  /* Permite que cada tarjeta tenga su altura natural */
+  height: auto;
 }
-.card:hover img{
 
-  transform:scale(1.05);
-
+/* Línea decorativa superior con gradiente UAEMéx */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #00693E, #2E7D32, #81C784);
+  z-index: 2;
 }
+
+/* Línea decorativa inferior dorada */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #C9A227;
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.16);
+}
+
+.card.active {
+  box-shadow: 0 25px 70px rgba(46, 125, 50, 0.22);
+  min-height: auto;
+}
+
 /* ==========================
-   CONTENIDO
+   IMAGEN DE LA TARJETA
 ========================== */
 
-.card-content{
-
-  padding:30px;
-
+.card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85) saturate(0.95);
+  transition: transform 0.5s ease, filter 0.5s ease;
+  flex-shrink: 0;
 }
 
-.card-content h2{
-
-  font-size:2rem;
-
-  color:#1B5E20;
-
-  font-weight:700;
-
-  margin-bottom:15px;
-
-}
-
-.card-content p{
-
-  color:#666;
-
-  line-height:1.8;
-
+.card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1) saturate(1.05);
 }
 
 /* ==========================
-   EXPANSIÓN
+   CONTENIDO DE LA TARJETA
 ========================== */
 
-.card-expand{
-
-  margin-top:20px;
-
-  padding-top:20px;
-
-  border-top:1px solid #E6E6E6;
-
+.card-content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.card-expand h3{
-
-  color:#2E7D32;
-
-  margin-bottom:15px;
-
+.card-content h2 {
+  color: #00693E;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 10px;
 }
 
-.card-expand ul{
-
-  list-style:none;
-
-  padding:0;
-
+.card-content h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 4px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: #C9A227;
 }
 
-.card-expand li{
-
-  padding:10px 0;
-
-  border-bottom:1px solid #F0F0F0;
-
-}
-.card-expand a{
-
-  color:#2E7D32;
-
-  font-weight:600;
-
-  text-decoration:none;
-
-  transition:.3s;
-
+.card-content p {
+  color: #5B6670;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  flex: 1;
 }
 
-.card-expand a:hover{
+/* ==========================
+   SECCIÓN DE EXPANSIÓN
+========================== */
 
-  color:#C7A34B;
-
-  padding-left:8px;
-
+.card-expand {
+  margin-top: 12px;
+  padding: 20px;
+  background: #FAFBFC;
+  border-top: 1px solid #E7ECEF;
+  border-radius: 0 0 18px 18px;
+  animation: expandCard 0.35s ease;
 }
-.card{
 
-  animation:fadeCard .7s ease;
-
+.card-expand h3 {
+  color: #00693E;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
-@keyframes fadeCard{
 
-  from{
+.card-expand ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    opacity:0;
+.card-expand li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  color: #37474F;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #ECEFF1;
+  transition: 0.3s;
+}
 
-    transform:
+.card-expand li:last-child {
+  border-bottom: none;
+}
 
-    translateY(40px);
+.card-expand li:hover {
+  padding-left: 6px;
+  color: #00693E;
+}
 
+.card-expand li::before {
+  content: '✔';
+  color: #2E7D32;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ==========================
+   BOTONES Y LINKS EN EXPANSIÓN
+========================== */
+
+.card-expand a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #2E7D32;
+  color: white;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.card-expand a::after {
+  content: '→';
+  font-size: 0.9rem;
+}
+
+.card-expand a:hover {
+  background: #00693E;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.25);
+}
+
+.card-expand p {
+  color: #546E7A;
+  line-height: 1.8;
+  font-size: 0.9rem;
+}
+
+/* ==========================
+   ANIMACIONES
+========================== */
+
+@keyframes expandCard {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
   }
-
-  to{
-
-    opacity:1;
-
-    transform:
-
-    translateY(0);
-
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-
 }
 
-.card-expand p{
-
-  line-height:1.7;
-
-  color:#555;
-
-}
-
-/* ==========================
-   ANIMACIÓN
-========================== */
-
-@keyframes expandCard{
-
-  from{
-
-    opacity:0;
-
-    transform:
-    translateY(-15px);
-
+@keyframes fadeCard {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
   }
-
-  to{
-
-    opacity:1;
-
-    transform:
-    translateY(0);
-
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-
 }
 
 /* ==========================
    DARK MODE
 ========================== */
 
-.dark-mode .home-section{
-
-  background:#121212;
-
+.dark-mode .home-section {
+  background: linear-gradient(180deg, #121212, #1B1B1B);
 }
 
-.dark-mode .home-header h1{
-
-  color:white;
-
+.dark-mode .home-header h1 {
+  color: #FFFFFF;
 }
 
-.dark-mode .home-header p{
-
-  color:#bdbdbd;
-
+.dark-mode .home-header h1::after {
+  background: #C9A227;
 }
 
-.dark-mode .card{
-
-  background:#1e1e1e;
-
+.dark-mode .home-header p {
+  color: #CFCFCF;
 }
 
-.dark-mode .card-content h2{
-
-  color:white;
-
+.dark-mode .card {
+  background: #202124;
+  border: 1px solid #303134;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
 }
 
-.dark-mode .card-content p{
-
-  color:#d0d0d0;
-
+.dark-mode .card::after {
+  background: #C9A227;
 }
 
-.dark-mode .card-expand{
-
-  border-top:1px solid #333;
-
+.dark-mode .card-content h2 {
+  color: #FFFFFF;
 }
 
-.dark-mode .card-expand h3{
-
-  color:#4CAF50;
-
+.dark-mode .card-content p {
+  color: #DADCE0;
 }
 
-.dark-mode .card-expand li,
-
-.dark-mode .card-expand p{
-
-  color:#e0e0e0;
-
+.dark-mode .card-expand {
+  background: #26282C;
+  border-top: 1px solid #3C4043;
 }
 
-/* ==========================
-   TABLET
-========================== */
+.dark-mode .card-expand h3 {
+  color: #81C784;
+}
 
-@media screen and (max-width:1200px){
+.dark-mode .card-expand li {
+  color: #ECECEC;
+  border-bottom: 1px solid #35363A;
+}
 
-  .cards-container{
+.dark-mode .card-expand li::before {
+  color: #81C784;
+}
 
-    grid-template-columns:
-    repeat(2,1fr);
+.dark-mode .card-expand a {
+  background: #2E7D32;
+}
 
-  }
+.dark-mode .card-expand a:hover {
+  background: #388E3C;
+}
 
+.dark-mode .card-expand p {
+  color: #E0E0E0;
 }
 
 /* ==========================
-   MÓVIL
+   TABLET - 2 COLUMNAS
 ========================== */
 
-@media screen and (max-width:768px){
+@media (max-width: 1600px) {
+  .cards-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 30px;
+  }
+}
 
-  .home-section{
-
-    padding:120px 20px 60px;
-
+@media (max-width: 1300px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 0 25px;
   }
 
-  .home-header{
-
-    margin-bottom:40px;
-
+  .home-section {
+    padding: 130px 25px 70px;
   }
 
-  .home-header h1{
+  .home-header {
+    margin-bottom: 60px;
+  }
+}
 
-    font-size:2.5rem;
-
+@media (max-width: 992px) {
+  .home-section {
+    padding: 120px 25px 70px;
   }
 
-  .home-header p{
-
-    font-size:1rem;
-
+  .home-header h1 {
+    font-size: 2.8rem;
   }
 
-  .cards-container{
-
-    grid-template-columns:1fr;
-
-    gap:25px;
-
+  .home-header p {
+    font-size: 1rem;
   }
 
-  .card img{
-
-    height:220px;
-
+  .card {
+    height: auto;
   }
 
+  .card img {
+    height: 160px;
+  }
+}
+
+/* ==========================
+   MÓVIL - 1 COLUMNA
+========================== */
+
+@media (max-width: 768px) {
+  .home-section {
+    padding: 110px 18px 50px;
+  }
+
+  .home-header {
+    margin-bottom: 50px;
+  }
+
+  .home-header h1 {
+    font-size: 2rem;
+  }
+
+  .home-header p {
+    font-size: 0.95rem;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .card.active {
+    min-height: auto;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .card-expand {
+    padding: 16px;
+  }
+
+  .card-expand a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-section {
+    padding: 100px 12px 40px;
+  }
+
+  .home-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-header p {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .card-content p {
+    font-size: 0.88rem;
+  }
+
+  .card-expand {
+    padding: 14px;
+  }
+
+  .card-expand h3 {
+    font-size: 1rem;
+  }
+
+  .card-expand li {
+    font-size: 0.85rem;
+    padding: 8px 0;
+  }
+}
+
+/* ==========================
+   EFECTOS EXTRAS
+========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #2E7D32;
+  color: white;
+}
+
+.card:hover .card-content h2 {
+  color: #2E7D32;
+}
+
+.card {
+  cursor: pointer;
 }

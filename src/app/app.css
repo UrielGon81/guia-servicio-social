@@ -1,0 +1,202 @@
+/* ==========================
+   VARIABLES Y COLORES UAEMEX
+========================== */
+
+:root {
+  /* Colores institucionales UAEMéx */
+  --verde-uaemex: #00693E;
+  --verde-uaemex-claro: #2E7D32;
+  --verde-uaemex-muy-claro: #81C784;
+  --oro-uaemex: #C9A227;
+  --oro-light: #D4B237;
+  
+  /* Grises y neutrales */
+  --gris-oscuro: #1B1B1B;
+  --gris-medio: #5B6670;
+  --gris-claro: #F8FAF9;
+  --blanco: #FFFFFF;
+  --borde-gris: #E6ECEA;
+  
+  /* Sombras */
+  --sombra-suave: 0 12px 35px rgba(15, 23, 42, 0.08);
+  --sombra-media: 0 25px 60px rgba(15, 23, 42, 0.16);
+  --sombra-fuerte: 0 25px 70px rgba(46, 125, 50, 0.22);
+  
+  /* Transiciones */
+  --trans-rapida: 0.25s ease;
+  --trans-media: 0.35s ease;
+  --trans-lenta: 0.5s ease;
+}
+
+/* ==========================
+   RESET GLOBAL
+========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background: var(--blanco);
+  color: var(--gris-medio);
+  line-height: 1.6;
+}
+
+/* ==========================
+   TIPOGRAFÍA
+========================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--verde-uaemex);
+}
+
+p {
+  color: var(--gris-medio);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--verde-uaemex-claro);
+  text-decoration: none;
+  transition: var(--trans-rapida);
+}
+
+a:hover {
+  color: var(--verde-uaemex);
+  text-decoration: underline;
+}
+
+/* ==========================
+   SELECCIÓN DE TEXTO
+========================== */
+
+::selection {
+  background: var(--verde-uaemex-claro);
+  color: var(--blanco);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gris-claro);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--verde-uaemex-claro);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--verde-uaemex);
+}
+
+/* ==========================
+   BOTONES GLOBALES
+========================== */
+
+button, .btn {
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--trans-rapida);
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-primary {
+  background: var(--verde-uaemex-claro);
+  color: var(--blanco);
+  padding: 12px 24px;
+}
+
+.btn-primary:hover {
+  background: var(--verde-uaemex);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.25);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--verde-uaemex-claro);
+  border: 2px solid var(--verde-uaemex-claro);
+  padding: 10px 22px;
+}
+
+.btn-outline:hover {
+  background: var(--verde-uaemex-claro);
+  color: var(--blanco);
+}
+
+/* ==========================
+   CONTENEDORES Y ESPACIOS
+========================== */
+
+.container {
+  max-width: 1550px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+.dark-mode {
+  --blanco: #121212;
+  --gris-claro: #1B1B1B;
+  --gris-medio: #DADCE0;
+  --borde-gris: #303134;
+}
+
+.dark-mode body {
+  background: var(--blanco);
+  color: var(--gris-medio);
+}
+
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h3, 
+.dark-mode h4, 
+.dark-mode h5, 
+.dark-mode h6 {
+  color: var(--blanco);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

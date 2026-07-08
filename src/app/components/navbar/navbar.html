@@ -1,147 +1,79 @@
-
 <mat-toolbar class="navbar">
 
   <!-- LOGO -->
-
   <div class="logo-container">
-
     <img
       src="assets/img/logo-uaemex.png"
       alt="UAEMéx"
       class="logo-img"
     >
-
     <div class="logo-text">
-
-      <span class="titulo">
-        Servicio Social
-      </span>
-
-      <span class="subtitulo">
-        Plataforma Inteligente UAEMéx
-      </span>
-
+      <span class="titulo">Servicio Social</span>
+      <span class="subtitulo">Plataforma Inteligente UAEMéx</span>
     </div>
-
   </div>
 
   <span class="spacer"></span>
 
   <!-- MENÚ DESKTOP -->
-
   <div class="desktop-menu">
-
     <button mat-button routerLink="/">
       Inicio
     </button>
-
     <button mat-button routerLink="/proceso">
       Proceso
     </button>
-
     <button mat-button routerLink="/requisitos">
       Requisitos
     </button>
-
     <button mat-button routerLink="/tutorial">
       Tutoriales
     </button>
-
     <button mat-button routerLink="/checklist">
       Checklist
     </button>
-
     <button mat-button routerLink="/faq">
       FAQ
     </button>
-
-    <button
-      mat-flat-button
-      color="primary"
-      class="chatbot-btn"
-      routerLink="/chatbot"
-    >
+    <button mat-button routerLink="/espacios">
+      Espacios
+    </button>
+    <button mat-flat-button color="primary" class="chatbot-btn" routerLink="/chatbot">
       Asistente IA
     </button>
-
   </div>
 
   <!-- MENÚ MÓVIL -->
-
-  <button
-    mat-icon-button
-    class="mobile-button"
-    (click)="menuAbierto = !menuAbierto"
-  >
-
+  <button mat-icon-button class="mobile-button" (click)="menuAbierto = !menuAbierto">
     <mat-icon>menu</mat-icon>
-
   </button>
 
 </mat-toolbar>
 
-<div
-  class="mobile-menu"
-  *ngIf="menuAbierto"
->
-
-  <button
-    mat-button
-    routerLink="/"
-    (click)="menuAbierto = false"
-  >
+<!-- MENÚ MÓVIL EXPANDIDO -->
+<div class="mobile-menu" *ngIf="menuAbierto">
+  <button mat-button routerLink="/" (click)="menuAbierto = false">
     Inicio
   </button>
-
-  <button
-    mat-button
-    routerLink="/proceso"
-    (click)="menuAbierto = false"
-  >
+  <button mat-button routerLink="/proceso" (click)="menuAbierto = false">
     Proceso
   </button>
-
-  <button
-    mat-button
-    routerLink="/requisitos"
-    (click)="menuAbierto = false"
-  >
+  <button mat-button routerLink="/requisitos" (click)="menuAbierto = false">
     Requisitos
   </button>
-
-  <button
-    mat-button
-    routerLink="/tutorial"
-    (click)="menuAbierto = false"
-  >
+  <button mat-button routerLink="/tutorial" (click)="menuAbierto = false">
     Tutoriales
   </button>
-
-  <button
-    mat-button
-    routerLink="/checklist"
-    (click)="menuAbierto = false"
-  >
+  <button mat-button routerLink="/checklist" (click)="menuAbierto = false">
     Checklist
   </button>
-
-  <button
-    mat-button
-    routerLink="/faq"
-    (click)="menuAbierto = false"
-  >
+  <button mat-button routerLink="/faq" (click)="menuAbierto = false">
     FAQ
   </button>
-
-  <button
-    mat-flat-button
-    color="primary"
-    class="chatbot-btn"
-    routerLink="/chatbot"
-    (click)="menuAbierto = false"
-  >
+  <button mat-button routerLink="/espacios" (click)="menuAbierto = false">
+    Espacios
+  </button>
+  <button mat-flat-button color="primary" class="chatbot-btn" routerLink="/chatbot" (click)="menuAbierto = false">
     Asistente IA
   </button>
-
 </div>
-
