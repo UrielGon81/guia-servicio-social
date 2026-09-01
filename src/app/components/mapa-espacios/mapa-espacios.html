@@ -7,92 +7,168 @@
 
   <div class="espacios-container">
 
-    <!-- MAPA INTERACTIVO SVG -->
+    <!-- MAPA INTERACTIVO SVG MEJORADO -->
     <div class="mapa-container">
-      <svg class="mapa-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+      <svg class="mapa-svg" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
         
-        <!-- Fondo del campus -->
-        <rect width="800" height="600" fill="#E8F5E9"/>
-        
-        <!-- Edificios del campus -->
-        <g id="edificios">
-          
-          <!-- Biblioteca -->
-          <rect x="100" y="80" width="120" height="100" fill="#C8E6C9" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="160" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Biblioteca</text>
-          
-          <!-- Centro de Cómputo -->
-          <rect x="300" y="80" width="120" height="100" fill="#A5D6A7" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="360" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Centro de<tspan x="360" dy="16">Cómputo</tspan></text>
-          
-          <!-- Laboratorios -->
-          <rect x="500" y="80" width="120" height="100" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="560" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Laboratorios</text>
-          
-          <!-- Rectoría -->
-          <rect x="650" y="80" width="120" height="100" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="710" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Rectoría</text>
-          
-          <!-- Centro de Idiomas -->
-          <rect x="100" y="250" width="140" height="110" fill="#A5D6A7" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="170" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Centro de<tspan x="170" dy="16">Idiomas</tspan></text>
-          
-          <!-- Oficinas Administrativas -->
-          <rect x="320" y="250" width="140" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="390" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Oficinas<tspan x="390" dy="16">Admin.</tspan></text>
-          
-          <!-- Departamento de Vinculación -->
-          <rect x="540" y="250" width="140" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="610" y="310" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Vinculación<tspan x="610" dy="16">Social</tspan></text>
-          
-          <!-- Centro Cultural -->
-          <rect x="100" y="420" width="140" height="110" fill="#A5D6A7" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="170" y="480" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Centro<tspan x="170" dy="16">Cultural</tspan></text>
-          
-          <!-- Cafetería / Servicios -->
-          <rect x="320" y="420" width="140" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="390" y="480" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Servicios<tspan x="390" dy="16">Estudiantiles</tspan></text>
-          
-          <!-- Deportes y Recreación -->
-          <rect x="540" y="420" width="140" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8"/>
-          <text x="610" y="480" text-anchor="middle" font-size="14" font-weight="bold" fill="#00693E">Deportes &<tspan x="610" dy="16">Recreación</tspan></text>
-          
+        <!-- Fondo del campus con gradiente -->
+        <defs>
+          <linearGradient id="fondoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#F0F8F5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#E0F2ED;stop-opacity:1" />
+          </linearGradient>
+          <filter id="sombra">
+            <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+          </filter>
+        </defs>
+
+        <!-- Fondo principal -->
+        <rect width="1000" height="700" fill="url(#fondoGradient)"/>
+
+        <!-- Caminos y zonas -->
+        <g id="caminos" opacity="0.3">
+          <line x1="50" y1="350" x2="950" y2="350" stroke="#00693E" stroke-width="3" stroke-dasharray="5,5"/>
+          <line x1="500" y1="50" x2="500" y2="650" stroke="#00693E" stroke-width="3" stroke-dasharray="5,5"/>
         </g>
 
-        <!-- Iconos interactivos (círculos clickeables) -->
+        <!-- ZONA NORTE - FACULTADES ACADÉMICAS (Verde Claro) -->
+        <g id="zona-norte">
+          <rect x="80" y="80" width="800" height="200" fill="#C8E6C9" opacity="0.2" rx="15"/>
+          <text x="500" y="100" text-anchor="middle" font-size="16" font-weight="bold" fill="#00693E" opacity="0.6">ZONA ACADÉMICA NORTE</text>
+
+          <!-- Ingeniería -->
+          <rect x="120" y="130" width="110" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="ingenieria"/>
+          <text x="175" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">⚙️</text>
+          <text x="175" y="185" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Ingeniería</text>
+          
+          <!-- Ciencias -->
+          <rect x="280" y="130" width="110" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="ciencias"/>
+          <text x="335" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">🔬</text>
+          <text x="335" y="185" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Ciencias</text>
+
+          <!-- Medicina -->
+          <rect x="440" y="130" width="110" height="110" fill="#C8E6C9" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="medicina"/>
+          <text x="495" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#00693E">⚕️</text>
+          <text x="495" y="185" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Medicina</text>
+
+          <!-- Derecho -->
+          <rect x="600" y="130" width="110" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="derecho"/>
+          <text x="655" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">⚖️</text>
+          <text x="655" y="185" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Derecho</text>
+
+          <!-- Lenguas -->
+          <rect x="760" y="130" width="110" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="lenguas"/>
+          <text x="815" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">🗣️</text>
+          <text x="815" y="185" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Lenguas</text>
+        </g>
+
+        <!-- ZONA CENTRO - HUMANIDADES Y SOCIALES (Verde Medio) -->
+        <g id="zona-centro">
+          <rect x="80" y="320" width="800" height="200" fill="#A5D6A7" opacity="0.2" rx="15"/>
+          <text x="500" y="340" text-anchor="middle" font-size="16" font-weight="bold" fill="#00693E" opacity="0.6">ZONA HUMANIDADES Y SOCIALES</text>
+
+          <!-- Humanidades -->
+          <rect x="120" y="370" width="110" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="humanidades"/>
+          <text x="175" y="405" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">📚</text>
+          <text x="175" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Humanidades</text>
+
+          <!-- Economía -->
+          <rect x="280" y="370" width="110" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="economia"/>
+          <text x="335" y="405" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">💼</text>
+          <text x="335" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Economía</text>
+
+          <!-- Ciencias Políticas -->
+          <rect x="440" y="370" width="110" height="110" fill="#C8E6C9" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="ciencias_politicas"/>
+          <text x="495" y="405" text-anchor="middle" font-size="13" font-weight="bold" fill="#00693E">🏛️</text>
+          <text x="495" y="420" text-anchor="middle" font-size="10" font-weight="bold" fill="#00693E">C. Políticas</text>
+
+          <!-- Contaduría -->
+          <rect x="600" y="370" width="110" height="110" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="contaduria"/>
+          <text x="655" y="405" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">📊</text>
+          <text x="655" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Contaduría</text>
+
+          <!-- Artes -->
+          <rect x="760" y="370" width="110" height="110" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="artes"/>
+          <text x="815" y="405" text-anchor="middle" font-size="13" font-weight="bold" fill="#FFFFFF">🎨</text>
+          <text x="815" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#00693E">Artes</text>
+        </g>
+
+        <!-- ZONA SUR - PROFESIONALES Y ESPECIALIZADAS (Verde Oscuro) -->
+        <g id="zona-sur">
+          <rect x="80" y="550" width="800" height="130" fill="#66BB6A" opacity="0.2" rx="15"/>
+          <text x="500" y="570" text-anchor="middle" font-size="16" font-weight="bold" fill="#00693E" opacity="0.6">ZONA PROFESIONAL Y ESPECIALIZADA</text>
+
+          <!-- Enfermería -->
+          <rect x="120" y="590" width="100" height="70" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="enfermeria"/>
+          <text x="170" y="610" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">🏥</text>
+          <text x="170" y="628" text-anchor="middle" font-size="9" font-weight="bold" fill="#00693E">Enfermería</text>
+
+          <!-- Odontología -->
+          <rect x="260" y="590" width="100" height="70" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="odontologia"/>
+          <text x="310" y="610" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">🦷</text>
+          <text x="310" y="628" text-anchor="middle" font-size="9" font-weight="bold" fill="#00693E">Odontología</text>
+
+          <!-- Veterinaria -->
+          <rect x="400" y="590" width="100" height="70" fill="#C8E6C9" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="veterinaria"/>
+          <text x="450" y="610" text-anchor="middle" font-size="12" font-weight="bold" fill="#00693E">🐾</text>
+          <text x="450" y="628" text-anchor="middle" font-size="9" font-weight="bold" fill="#00693E">Veterinaria</text>
+
+          <!-- Química -->
+          <rect x="540" y="590" width="100" height="70" fill="#81C784" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="quimica"/>
+          <text x="590" y="610" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">⚗️</text>
+          <text x="590" y="628" text-anchor="middle" font-size="9" font-weight="bold" fill="#00693E">Química</text>
+
+          <!-- Agricultura -->
+          <rect x="680" y="590" width="100" height="70" fill="#66BB6A" stroke="#00693E" stroke-width="2" rx="8" filter="url(#sombra)" class="edificio" data-espacio="ciencias_agricolas"/>
+          <text x="730" y="610" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">🌾</text>
+          <text x="730" y="628" text-anchor="middle" font-size="9" font-weight="bold" fill="#00693E">Agricultura</text>
+        </g>
+
+        <!-- PUNTOS INTERACTIVOS (CÍRCULOS INVISIBLES PARA CLICK) -->
         <g id="puntos-interes" class="puntos-interes">
-          <circle class="punto-interes" cx="160" cy="130" r="8" data-espacio="biblioteca" (click)="seleccionarEspacio('biblioteca')"/>
-          <circle class="punto-interes" cx="360" cy="130" r="8" data-espacio="computo" (click)="seleccionarEspacio('computo')"/>
-          <circle class="punto-interes" cx="560" cy="130" r="8" data-espacio="laboratorios" (click)="seleccionarEspacio('laboratorios')"/>
-          <circle class="punto-interes" cx="710" cy="130" r="8" data-espacio="rectoria" (click)="seleccionarEspacio('rectoria')"/>
-          <circle class="punto-interes" cx="170" cy="305" r="8" data-espacio="idiomas" (click)="seleccionarEspacio('idiomas')"/>
-          <circle class="punto-interes" cx="390" cy="305" r="8" data-espacio="admin" (click)="seleccionarEspacio('admin')"/>
-          <circle class="punto-interes" cx="610" cy="305" r="8" data-espacio="vinculacion" (click)="seleccionarEspacio('vinculacion')"/>
-          <circle class="punto-interes" cx="170" cy="475" r="8" data-espacio="cultural" (click)="seleccionarEspacio('cultural')"/>
-          <circle class="punto-interes" cx="390" cy="475" r="8" data-espacio="servicios" (click)="seleccionarEspacio('servicios')"/>
-          <circle class="punto-interes" cx="610" cy="475" r="8" data-espacio="deportes" (click)="seleccionarEspacio('deportes')"/>
+          <circle class="punto-interes" cx="175" cy="185" r="60" data-espacio="ingenieria" (click)="seleccionarEspacio('ingenieria')"/>
+          <circle class="punto-interes" cx="335" cy="185" r="60" data-espacio="ciencias" (click)="seleccionarEspacio('ciencias')"/>
+          <circle class="punto-interes" cx="495" cy="185" r="60" data-espacio="medicina" (click)="seleccionarEspacio('medicina')"/>
+          <circle class="punto-interes" cx="655" cy="185" r="60" data-espacio="derecho" (click)="seleccionarEspacio('derecho')"/>
+          <circle class="punto-interes" cx="815" cy="185" r="60" data-espacio="lenguas" (click)="seleccionarEspacio('lenguas')"/>
+
+          <circle class="punto-interes" cx="175" cy="425" r="60" data-espacio="humanidades" (click)="seleccionarEspacio('humanidades')"/>
+          <circle class="punto-interes" cx="335" cy="425" r="60" data-espacio="economia" (click)="seleccionarEspacio('economia')"/>
+          <circle class="punto-interes" cx="495" cy="425" r="60" data-espacio="ciencias_politicas" (click)="seleccionarEspacio('ciencias_politicas')"/>
+          <circle class="punto-interes" cx="655" cy="425" r="60" data-espacio="contaduria" (click)="seleccionarEspacio('contaduria')"/>
+          <circle class="punto-interes" cx="815" cy="425" r="60" data-espacio="artes" (click)="seleccionarEspacio('artes')"/>
+
+          <circle class="punto-interes" cx="170" cy="625" r="50" data-espacio="enfermeria" (click)="seleccionarEspacio('enfermeria')"/>
+          <circle class="punto-interes" cx="310" cy="625" r="50" data-espacio="odontologia" (click)="seleccionarEspacio('odontologia')"/>
+          <circle class="punto-interes" cx="450" cy="625" r="50" data-espacio="veterinaria" (click)="seleccionarEspacio('veterinaria')"/>
+          <circle class="punto-interes" cx="590" cy="625" r="50" data-espacio="quimica" (click)="seleccionarEspacio('quimica')"/>
+          <circle class="punto-interes" cx="730" cy="625" r="50" data-espacio="ciencias_agricolas" (click)="seleccionarEspacio('ciencias_agricolas')"/>
         </g>
 
       </svg>
 
-      <!-- Leyenda -->
+      <!-- Leyenda mejorada -->
       <div class="mapa-leyenda">
-        <div class="leyenda-item">
-          <span class="leyenda-color" style="background: #C8E6C9;"></span>
-          <span>Área Académica</span>
+        <h3>Leyenda del Campus</h3>
+        <div class="leyenda-grid">
+          <div class="leyenda-item">
+            <span class="leyenda-color" style="background: #C8E6C9;"></span>
+            <span>Zona Académica</span>
+          </div>
+          <div class="leyenda-item">
+            <span class="leyenda-color" style="background: #81C784;"></span>
+            <span>Zona Profesional</span>
+          </div>
+          <div class="leyenda-item">
+            <span class="leyenda-color" style="background: #66BB6A;"></span>
+            <span>Zona Especializada</span>
+          </div>
+          <div class="leyenda-item">
+            <span class="leyenda-color" style="background: #A5D6A7;"></span>
+            <span>Zona Humanidades</span>
+          </div>
         </div>
-        <div class="leyenda-item">
-          <span class="leyenda-color" style="background: #A5D6A7;"></span>
-          <span>Área de Servicios</span>
-        </div>
-        <div class="leyenda-item">
-          <span class="leyenda-color" style="background: #81C784;"></span>
-          <span>Área Administrativa</span>
-        </div>
-        <div class="leyenda-item">
-          <span class="leyenda-color" style="background: #66BB6A;"></span>
-          <span>Área Especializada</span>
-        </div>
+        <p class="leyenda-hint">💡 Haz clic en cualquier edificio para ver más información</p>
       </div>
 
     </div>
@@ -126,7 +202,7 @@
           <div class="detalle-item">
             <span class="detalle-icono">👥</span>
             <div>
-              <strong>Responsable</strong>
+              <strong>Responsable de SS</strong>
               <p>{{ espacioSeleccionado.responsable }}</p>
             </div>
           </div>
@@ -147,9 +223,22 @@
             </div>
           </div>
 
+          <div *ngIf="espacioSeleccionado.estudiantesActuales" class="detalle-item">
+            <span class="detalle-icono">📈</span>
+            <div>
+              <strong>Estadísticas</strong>
+              <p>{{ espacioSeleccionado.estudiantesActuales }} estudiantes en SS | {{ espacioSeleccionado.convenios }} convenios</p>
+            </div>
+          </div>
+
         </div>
 
+        <!-- BOTÓN CORREGIDO: un solo ícono SVG, sin emoji duplicado -->
         <button class="btn-solicitar" (click)="solicitar(espacioSeleccionado)">
+          <svg class="btn-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 6h16v12H4z"/>
+            <path d="M4 7l8 6 8-6"/>
+          </svg>
           Solicitar Servicio Social
         </button>
 
@@ -159,7 +248,8 @@
         <div class="placeholder-content">
           <span class="placeholder-icon">🗺️</span>
           <h3>Selecciona un espacio</h3>
-          <p>Haz clic en cualquier área del mapa para ver más información sobre las oportunidades de servicio social disponibles.</p>
+          <p>Haz clic en cualquier edificio del mapa para ver información detallada sobre las oportunidades de servicio social disponibles.</p>
+          <p class="placeholder-hint">👆 Prueba haciendo clic en cualquier edificio de color</p>
         </div>
       </div>
 

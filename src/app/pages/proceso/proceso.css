@@ -4,7 +4,11 @@
 
   padding: 140px 40px 100px;
 
-  background: #f7f7f7;
+  background:
+    linear-gradient(rgba(0,0,0,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.035) 1px, transparent 1px),
+    #f7f7f7;
+  background-size: 42px 42px, 42px 42px, 100% 100%;
 
 }
 
@@ -20,6 +24,19 @@
 
   margin-bottom: 90px;
 
+}
+
+.tech-tag {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #2E7D32;
+  background: #E8F5E9;
+  border: 1px solid #A5D6A7;
+  padding: 6px 16px;
+  border-radius: 4px;
+  margin-bottom: 22px;
 }
 
 .timeline-header h1 {
@@ -50,144 +67,215 @@
 
 }
 
-/* GRID */
+/* TIMELINE */
 
 .timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
 
-  display: grid;
+.timeline-linea {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-image: linear-gradient(#2E7D32 60%, transparent 40%);
+  background-size: 2px 14px;
+  background-repeat: repeat-y;
+  transform: translateX(-50%);
+  opacity: 0.5;
+}
 
-  grid-template-columns:
-  repeat(auto-fit,minmax(320px,1fr));
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 55px 70px;
+}
 
-  gap: 40px;
+.timeline-item:nth-child(2) {
+  left: 0;
+  text-align: right;
+}
 
-  align-items: stretch;
+.timeline-item:nth-child(3) {
+  left: 50%;
+}
 
+.timeline-item:nth-child(4) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(5) {
+  left: 50%;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* CONECTOR estilo circuito */
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 44px;
+  width: 40px;
+  height: 2px;
+  background: #A5D6A7;
+}
+
+.timeline-item:nth-child(2)::after,
+.timeline-item:nth-child(4)::after {
+  right: 15px;
+}
+
+.timeline-item:nth-child(3)::after,
+.timeline-item:nth-child(5)::after {
+  left: 15px;
 }
 
 /* CARD */
 
 .timeline-card {
-
+  position: relative;
   background: white;
-
-  border-radius: 28px;
-
-  padding: 45px 35px;
-
-  box-shadow:
-  0 8px 25px rgba(0,0,0,.06);
-
-  transition: .35s ease;
-
-  display: flex;
-
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  padding: 32px 30px;
+  transition: .3s ease;
+  display: inline-flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
 
-  justify-content: space-between;
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  border-top: 2px solid #2E7D32;
+  border-left: 2px solid #2E7D32;
+}
 
-  min-height: 350px;
+.timeline-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  border-bottom: 2px solid #2E7D32;
+  border-right: 2px solid #2E7D32;
+}
 
+.timeline-item:nth-child(2) .timeline-card,
+.timeline-item:nth-child(4) .timeline-card {
+  align-items: flex-end;
+  text-align: right;
 }
 
 .timeline-card:hover {
-
-  transform:
-  translateY(-8px);
-
-  box-shadow:
-  0 18px 35px rgba(0,0,0,.1);
-
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 1px #2E7D32, 0 20px 40px rgba(46,125,50,.15);
 }
 
 /* NUMBER */
 
 .step-number {
-
-  width: 75px;
-
-  height: 75px;
-
+  position: absolute;
+  top: 26px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-
   background: #2E7D32;
-
-  color: white;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
+  border: 4px solid #f7f7f7;
+  box-shadow: 0 0 0 2px #2E7D32;
+}
 
-  font-size: 1.8rem;
-
+.step-number span {
+  font-family: 'Courier New', monospace;
+  color: white;
+  font-size: 1rem;
   font-weight: bold;
+}
 
-  margin-bottom: 30px;
+.timeline-item:nth-child(2) .step-number,
+.timeline-item:nth-child(4) .step-number {
+  right: -23px;
+}
 
+.timeline-item:nth-child(3) .step-number,
+.timeline-item:nth-child(5) .step-number {
+  left: -23px;
+}
+
+/* TAG */
+
+.step-tag {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #2E7D32;
+  opacity: 0.7;
+  margin-bottom: 10px;
 }
 
 /* TITLE */
 
 .timeline-card h2 {
-
-  font-size: 1.9rem;
-
+  font-size: 1.5rem;
   color: #111;
-
-  margin-bottom: 18px;
-
+  margin-bottom: 14px;
   line-height: 1.3;
-
 }
 
 /* TEXT */
 
 .timeline-card p {
-
   color: #555;
-
-  line-height: 1.9;
-
-  font-size: 1rem;
-
-  margin-bottom: 35px;
-
+  line-height: 1.8;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
 }
 
 /* BUTTON */
 
 .timeline-card button {
-
   width: fit-content;
-
-  padding: 14px 28px;
-
+  padding: 12px 24px;
   border: none;
-
-  border-radius: 50px;
-
+  border-radius: 4px;
   background: #2E7D32;
-
   color: white;
-
-  font-size: 1rem;
-
+  font-size: 0.95rem;
   font-weight: 600;
-
   cursor: pointer;
-
   transition: .3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 
+.btn-arrow {
+  transition: transform .25s ease;
 }
 
 .timeline-card button:hover {
-
   background: #1B5E20;
+}
 
-  transform: scale(1.03);
-
+.timeline-card button:hover .btn-arrow {
+  transform: translateX(4px);
 }
 
 /* RESPONSIVE */
@@ -218,27 +306,69 @@
 
   }
 
-  .timeline {
+  .timeline-linea {
+    left: 20px;
+    transform: none;
+  }
 
-    gap: 25px;
+  .timeline-item,
+  .timeline-item:nth-child(2),
+  .timeline-item:nth-child(3),
+  .timeline-item:nth-child(4),
+  .timeline-item:nth-child(5) {
+    left: 0;
+    width: 100%;
+    padding: 0 0 45px 60px;
+    text-align: left;
+  }
 
+  .timeline-item:nth-child(2) .timeline-card,
+  .timeline-item:nth-child(4) .timeline-card {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .timeline-item::after,
+  .timeline-item:nth-child(2)::after,
+  .timeline-item:nth-child(3)::after,
+  .timeline-item:nth-child(4)::after,
+  .timeline-item:nth-child(5)::after {
+    left: 18px;
+    right: auto;
+    width: 30px;
+    top: 22px;
   }
 
   .timeline-card {
 
-    padding: 35px 25px;
-
-    min-height: auto;
+    padding: 28px 22px;
 
   }
 
   .timeline-card h2 {
 
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 
   }
 
+  .step-number,
+  .timeline-item:nth-child(2) .step-number,
+  .timeline-item:nth-child(3) .step-number,
+  .timeline-item:nth-child(4) .step-number,
+  .timeline-item:nth-child(5) .step-number {
+    left: -8px;
+    right: auto;
+    width: 40px;
+    height: 40px;
+    top: 18px;
+  }
+
+  .step-number span {
+    font-size: 0.85rem;
+  }
+
 }
+
 /* RESPONSIVE */
 
 @media screen and (max-width:768px){
@@ -288,7 +418,6 @@
   }
 
   .info-grid,
-  .timeline,
   .steps{
 
     grid-template-columns:1fr !important;
@@ -298,7 +427,6 @@
   }
 
   .info-card,
-  .timeline-card,
   .step{
 
     width:100%;
@@ -311,8 +439,7 @@
 
   }
 
-  .card-content h3,
-  .timeline-card h2{
+  .card-content h3{
 
     font-size:1.5rem;
 

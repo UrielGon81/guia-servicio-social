@@ -91,36 +91,49 @@
 }
 
 .punto-interes {
-  fill: #C9A227;
-  stroke: #00693E;
-  stroke-width: 2;
-  opacity: 0.8;
+  fill: transparent;
+  stroke: transparent;
+  opacity: 0;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .punto-interes:hover {
-  r: 12;
-  opacity: 1;
-  filter: drop-shadow(0 0 8px #C9A227);
+  filter: drop-shadow(0 0 12px rgba(201, 162, 39, 0.6));
+  animation: pulsoHover 0.6s ease-out;
 }
 
 .punto-interes.activo {
-  r: 12;
-  opacity: 1;
-  fill: #00693E;
-  filter: drop-shadow(0 0 12px #C9A227);
   animation: pulsoMapa 1.5s ease-in-out infinite;
+}
+
+@keyframes pulsoHover {
+  0% {
+    filter: drop-shadow(0 0 0px rgba(201, 162, 39, 0));
+  }
+  100% {
+    filter: drop-shadow(0 0 12px rgba(201, 162, 39, 0.6));
+  }
 }
 
 @keyframes pulsoMapa {
   0%, 100% {
-    r: 12;
-    opacity: 1;
+    filter: drop-shadow(0 0 8px #C9A227);
   }
   50% {
-    r: 16;
-    opacity: 0.7;
+    filter: drop-shadow(0 0 16px #C9A227);
   }
+}
+
+/* Hover en edificios */
+.edificio {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.edificio:hover {
+  filter: brightness(1.1) drop-shadow(0 6px 12px rgba(0, 105, 62, 0.25));
+  transform: translateY(-4px);
 }
 
 /* ==========================
@@ -128,12 +141,25 @@
 ========================== */
 
 .mapa-leyenda {
+  margin-top: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #F0F8F5 0%, #E8F5E9 100%);
+  border-radius: 12px;
+  border: 2px solid #C8E6C9;
+}
+
+.mapa-leyenda h3 {
+  color: #00693E;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.leyenda-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
-  margin-top: 25px;
-  padding-top: 25px;
-  border-top: 2px solid #E6ECEA;
+  margin-bottom: 15px;
 }
 
 .leyenda-item {
@@ -142,14 +168,25 @@
   gap: 10px;
   font-size: 0.9rem;
   color: #5B6670;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
 }
 
 .leyenda-color {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
   border: 2px solid #00693E;
   flex-shrink: 0;
+}
+
+.leyenda-hint {
+  text-align: center;
+  color: #00693E;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
 }
 
 /* ==========================
@@ -269,31 +306,33 @@
 
 .btn-solicitar {
   width: 100%;
-  background: linear-gradient(135deg, #00693E, #1B5E20);
+  background: #00693E;
   color: #FFFFFF;
   border: none;
-  padding: 15px 24px;
-  border-radius: 12px;
+  padding: 14px 24px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0, 105, 62, 0.25);
+  transition: background 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.btn-solicitar::before {
-  content: '📧';
-  font-size: 1.2rem;
+.btn-solicitar .btn-icono {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .btn-solicitar:hover {
-  background: linear-gradient(135deg, #1B5E20, #00693E);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 105, 62, 0.35);
+  background: #005232;
+}
+
+.btn-solicitar:active {
+  background: #003D26;
 }
 
 /* ==========================

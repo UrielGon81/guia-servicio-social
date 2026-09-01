@@ -47,11 +47,11 @@ export const routes: Routes = [
   {
     path: 'chatbot',
     loadComponent: () =>
-      import('./pages/chatbot/chatbot').then(m => m.Chatbot)
+      import('./pages/chatbot/chatbot').then(m => m.ChatbotComponent)
   },
 
   {
     path: '**',
     redirectTo: ''
   }
-];
+];  

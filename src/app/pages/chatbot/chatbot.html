@@ -2,72 +2,167 @@
 
   <div class="chat-container">
 
-    <!-- HEADER -->
-
+    <!-- HEADER MEJORADO -->
     <div class="chat-header">
-
-      <h1>
-        Asistente Virtual
-      </h1>
-
-      <p>
-        Sistema de apoyo para servicio social.
-      </p>
-
+      <div class="header-content">
+        <div class="header-icon">💬</div>
+        <div class="header-text">
+          <h1>Asistente Virtual UAEMéx</h1>
+          <p>Tu guía inteligente para el Servicio Social</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button 
+          class="btn-info" 
+          title="Información de ayuda"
+          (click)="mostrarAyuda()"
+        >
+          ❓ Ayuda
+        </button>
+        <button 
+          class="btn-limpiar" 
+          (click)="limpiarMemoria()" 
+          title="Limpiar conversación y memoria"
+        >
+          🔄 Reiniciar
+        </button>
+      </div>
     </div>
 
-    <!-- CHAT -->
-
-    <div class="chat-box">
-
-      <div
-        *ngFor="let mensaje of mensajes"
-        class="mensaje"
-        [ngClass]="mensaje.tipo"
-      >
-
-        {{ mensaje.texto }}
-
+    <!-- INFO INICIAL - MEJORADA -->
+    <div *ngIf="mensajes.length <= 1" class="chat-welcome">
+      <div class="welcome-header">
+        <div class="welcome-icon">👋</div>
+        <h2>¡Bienvenido al Asistente de Servicio Social!</h2>
+        <p class="welcome-subtitle">Responderé todas tus dudas sobre el proceso</p>
       </div>
 
-      <!-- LOADING -->
+      <div class="welcome-content">
+        <div class="welcome-section">
+          <h3>Preguntas frecuentes:</h3>
+          <div class="welcome-grid">
+            <button 
+              class="welcome-btn proceso" 
+              (click)="enviarPregunta()"
+            >
+              <span class="btn-icon">📋</span>
+              <span class="btn-text">¿Cuál es el proceso?</span>
+            </button>
+            <button 
+              class="welcome-btn requisitos" 
+              (click)="enviarPregunta()"
+            >
+              <span class="btn-icon">✅</span>
+              <span class="btn-text">¿Qué requisitos?</span>
+            </button>
+            <button 
+              class="welcome-btn horas" 
+              (click)="enviarPregunta()"
+            >
+              <span class="btn-icon">⏱️</span>
+              <span class="btn-text">¿Cuántas horas?</span>
+            </button>
+            <button 
+              class="welcome-btn documentos" 
+              (click)="enviarPregunta()"
+            >
+              <span class="btn-icon">📄</span>
+              <span class="btn-text">¿Documentos?</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="welcome-tips">
+          <h4>💡 Consejos:</h4>
+          <ul>
+            <li>Puedes hacer preguntas libres sobre SS</li>
+            <li>Comparte tu nombre para un trato más personal</li>
+            <li>Pregunta sobre SICDE, informes, espacios, etc.</li>
+            <li>Usa "reiniciar" para limpiar la conversación</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAT BOX - MEJORADO -->
+    <div class="chat-box" #chatBox>
 
       <div
-        *ngIf="cargando"
-        class="mensaje bot"
+        *ngFor="let mensaje of mensajes; let last = last; let i = index"
+        class="mensaje-wrapper"
+        [ngClass]="[mensaje.tipo, { animate: last }]"
+        [@slideIn]
       >
+        <div class="mensaje-avatar" [title]="mensaje.tipo === 'usuario' ? 'Tú' : 'Asistente'">
+          {{ mensaje.tipo === 'usuario' ? '👤' : '🤖' }}
+        </div>
+        <div class="mensaje-contenido">
+          <div class="mensaje-texto">
+            <p [innerHTML]="mensaje.texto"></p>
+          </div>
+          <div class="mensaje-footer">
+            <span class="mensaje-hora">{{ mensaje.hora }}</span>
+            <span class="mensaje-type">{{ mensaje.tipo === 'usuario' ? 'Tú' : 'Asistente' }}</span>
+          </div>
+        </div>
+      </div>
 
-        Escribiendo...
-
+      <!-- LOADING INDICATOR - MEJORADO -->
+      <div *ngIf="cargando" class="mensaje-wrapper bot loading-message">
+        <div class="mensaje-avatar">🤖</div>
+        <div class="mensaje-contenido">
+          <div class="mensaje-texto">
+            <div class="mensaje-loading">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <p class="loading-text">El asistente está escribiendo...</p>
+          </div>
+        </div>
       </div>
 
     </div>
 
-    <!-- INPUT -->
-
-    <div class="chat-input">
-
-      <input
-
-        type="text"
-
-        placeholder="Escribe tu pregunta..."
-
-        [(ngModel)]="pregunta"
-
-        (keyup.enter)="enviarPregunta()"
-      >
-
-      <button
-        (click)="enviarPregunta()"
-      >
-
-        Enviar
-
-      </button>
-
+    <!-- INPUT AREA - MEJORADA -->
+    <div class="chat-input-wrapper">
+      <div class="chat-input">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Escribe tu pregunta aquí... (ej: ¿Cuál es el proceso?, ¿Requisitos?)"
+          [(ngModel)]="pregunta"
+          (keyup.enter)="enviarPregunta()"
+          [disabled]="cargando"
+          autocomplete="off"
+        >
+        <button
+          class="btn-enviar"
+          (click)="enviarPregunta()"
+          [disabled]="cargando || !pregunta.trim()"
+          title="Enviar pregunta (Enter)"
+        >
+          <span class="btn-icon">{{ cargando ? '⏳' : '→' }}</span>
+        </button>
+      </div>
+      
+      <div class="input-footer">
+        <p class="input-hint">
+          💡 <strong>Tip:</strong> Pregunta sobre proceso, requisitos, SICDE, documentos, horas, informes, liberación, espacios...
+        </p>
+        <div class="input-indicators">
+          <span *ngIf="!cargando && pregunta.trim()" class="indicator active">✓ Listo para enviar</span>
+          <span *ngIf="cargando" class="indicator loading">⏳ Procesando...</span>
+          <span *ngIf="!pregunta.trim() && !cargando" class="indicator">Escribe algo...</span>
+        </div>
+      </div>
     </div>
 
+  </div>
+
+  <!-- TOOLTIP FLOTANTE (OPCIONAL) -->
+  <div class="chat-tooltip" *ngIf="mostrarTooltip">
+    <p>{{ tooltipTexto }}</p>
   </div>
 
 </section>
