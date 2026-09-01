@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -15,27 +15,17 @@ interface Mensaje {
   templateUrl: './chatbot.html',
   styleUrls: ['./chatbot.css']
 })
-export class ChatbotComponent implements OnInit, AfterViewChecked {
+export class ChatbotComponent implements OnInit {
+
+  @ViewChild('chatBox') chatBox!: ElementRef<HTMLDivElement>;
 
   tooltipTexto: string = '';
   mostrarTooltip: boolean = false;
-
-  limpiarMemoria(): void {
-    this.limpiarChat();
-  }
-
-  mostrarAyuda(): void {
-    this.agregarMensajeBot('Puedo ayudarte con dudas sobre el proceso, requisitos, documentos, duración, espacios disponibles o datos de contacto. ¡Solo pregunta!');
-  }
-
-  @ViewChild('chatBox') chatBox!: ElementRef;
-
   mensajes: Mensaje[] = [];
   pregunta: string = '';
   cargando: boolean = false;
-  private shouldScroll = false;
 
-  respuestasBasicas: { [key: string]: string } = {
+  respuestasBasicas: Record<string, string> = {
     'proceso': `El proceso de Servicio Social en UAEMéx incluye:
 
 1. **Registro en SICDE** - Accede al sistema de control escolar
@@ -119,17 +109,16 @@ Descarga los formatos en tu facultad o pregunta por ellos al responsable de SS.`
 También puedes ir directamente a tu facultad y preguntar por "Servicio Social".`
   };
 
-  constructor() {}
-
   ngOnInit(): void {
     this.agregarMensajeBot('¡Hola! Soy tu Asistente Virtual de Servicio Social. ¿En qué puedo ayudarte hoy? 😊');
   }
 
-  ngAfterViewChecked(): void {
-    if (this.shouldScroll) {
-      this.scrollAlFinal();
-      this.shouldScroll = false;
-    }
+  limpiarMemoria(): void {
+    this.limpiarChat();
+  }
+
+  mostrarAyuda(): void {
+    this.agregarMensajeBot('Puedo ayudarte con dudas sobre el proceso, requisitos, documentos, duración, espacios disponibles o datos de contacto. ¡Solo pregunta!');
   }
 
   enviarPreguntaPredefinida(pregunta: string): void {
@@ -143,16 +132,15 @@ También puedes ir directamente a tu facultad y preguntar por "Servicio Social".
     }
 
     const preguntaLimpia = this.pregunta.trim();
-
     this.agregarMensajeUsuario(preguntaLimpia);
     this.pregunta = '';
     this.cargando = true;
 
-    // Pequeño retardo para que se sienta natural, aunque la respuesta ya está lista
+    // Retardo breve no bloqueante (100ms)
     setTimeout(() => {
       this.obtenerRespuesta(preguntaLimpia);
       this.cargando = false;
-    }, 400);
+    }, 100);
   }
 
   private obtenerRespuesta(pregunta: string): void {
@@ -166,11 +154,11 @@ También puedes ir directamente a tu facultad y preguntar por "Servicio Social".
       this.agregarMensajeBot(this.respuestasBasicas['requisitos']);
       return;
     }
-    if (preguntaLower.includes('espacio') || preguntaLower.includes('dónde')) {
+    if (preguntaLower.includes('espacio') || preguntaLower.includes('dónde') || preguntaLower.includes('donde')) {
       this.agregarMensajeBot(this.respuestasBasicas['espacios']);
       return;
     }
-    if (preguntaLower.includes('duración') || preguntaLower.includes('tiempo') || preguntaLower.includes('horas')) {
+    if (preguntaLower.includes('duración') || preguntaLower.includes('duracion') || preguntaLower.includes('tiempo') || preguntaLower.includes('horas')) {
       this.agregarMensajeBot(this.respuestasBasicas['duracion']);
       return;
     }
@@ -178,12 +166,11 @@ También puedes ir directamente a tu facultad y preguntar por "Servicio Social".
       this.agregarMensajeBot(this.respuestasBasicas['documentos']);
       return;
     }
-    if (preguntaLower.includes('contacto') || preguntaLower.includes('teléfono')) {
+    if (preguntaLower.includes('contacto') || preguntaLower.includes('teléfono') || preguntaLower.includes('telefono')) {
       this.agregarMensajeBot(this.respuestasBasicas['contacto']);
       return;
     }
 
-    // Sin coincidencia: respuesta por defecto
     this.agregarMensajeBot('No tengo una respuesta exacta para eso, pero puedo ayudarte con: el proceso de Servicio Social, requisitos, documentos, duración, espacios disponibles o datos de contacto. ¿Sobre cuál te gustaría saber más?');
   }
 
@@ -193,7 +180,7 @@ También puedes ir directamente a tu facultad y preguntar por "Servicio Social".
       texto: texto,
       hora: this.obtenerHora()
     });
-    this.shouldScroll = true;
+    this.scrollAlFinal();
   }
 
   private agregarMensajeBot(texto: string): void {
@@ -202,7 +189,7 @@ También puedes ir directamente a tu facultad y preguntar por "Servicio Social".
       texto: texto,
       hora: this.obtenerHora()
     });
-    this.shouldScroll = true;
+    this.scrollAlFinal();
   }
 
   limpiarChat(): void {
@@ -213,8 +200,7 @@ También puedes ir directamente a tu facultad y preguntar por "Servicio Social".
   }
 
   private obtenerHora(): string {
-    const ahora = new Date();
-    return ahora.toLocaleTimeString('es-MX', {
+    return new Date().toLocaleTimeString('es-MX', {
       hour: '2-digit',
       minute: '2-digit',
       hour12: true
@@ -222,11 +208,10 @@ También puedes ir directamente a tu facultad y preguntar por "Servicio Social".
   }
 
   private scrollAlFinal(): void {
-    try {
-      this.chatBox.nativeElement.scrollTop = this.chatBox.nativeElement.scrollHeight;
-    } catch (err) {
-      console.log('Error en scroll');
-    }
+    setTimeout(() => {
+      if (this.chatBox?.nativeElement) {
+        this.chatBox.nativeElement.scrollTop = this.chatBox.nativeElement.scrollHeight;
+      }
+    }, 0);
   }
-
 }

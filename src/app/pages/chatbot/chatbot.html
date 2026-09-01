@@ -2,7 +2,7 @@
 
   <div class="chat-container">
 
-    <!-- HEADER MEJORADO -->
+    <!-- HEADER -->
     <div class="chat-header">
       <div class="header-content">
         <div class="header-icon">💬</div>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <!-- INFO INICIAL - MEJORADA -->
+    <!-- INFO INICIAL -->
     <div *ngIf="mensajes.length <= 1" class="chat-welcome">
       <div class="welcome-header">
         <div class="welcome-icon">👋</div>
@@ -43,28 +43,28 @@
           <div class="welcome-grid">
             <button 
               class="welcome-btn proceso" 
-              (click)="enviarPregunta()"
+              (click)="enviarPreguntaPredefinida('¿Cuál es el proceso?')"
             >
               <span class="btn-icon">📋</span>
               <span class="btn-text">¿Cuál es el proceso?</span>
             </button>
             <button 
               class="welcome-btn requisitos" 
-              (click)="enviarPregunta()"
+              (click)="enviarPreguntaPredefinida('¿Qué requisitos necesito?')"
             >
               <span class="btn-icon">✅</span>
               <span class="btn-text">¿Qué requisitos?</span>
             </button>
             <button 
               class="welcome-btn horas" 
-              (click)="enviarPregunta()"
+              (click)="enviarPreguntaPredefinida('¿Cuántas horas son de servicio social?')"
             >
               <span class="btn-icon">⏱️</span>
               <span class="btn-text">¿Cuántas horas?</span>
             </button>
             <button 
               class="welcome-btn documentos" 
-              (click)="enviarPregunta()"
+              (click)="enviarPreguntaPredefinida('¿Qué documentos necesito?')"
             >
               <span class="btn-icon">📄</span>
               <span class="btn-text">¿Documentos?</span>
@@ -76,7 +76,6 @@
           <h4>💡 Consejos:</h4>
           <ul>
             <li>Puedes hacer preguntas libres sobre SS</li>
-            <li>Comparte tu nombre para un trato más personal</li>
             <li>Pregunta sobre SICDE, informes, espacios, etc.</li>
             <li>Usa "reiniciar" para limpiar la conversación</li>
           </ul>
@@ -84,21 +83,20 @@
       </div>
     </div>
 
-    <!-- CHAT BOX - MEJORADO -->
+    <!-- CHAT BOX -->
     <div class="chat-box" #chatBox>
 
       <div
-        *ngFor="let mensaje of mensajes; let last = last; let i = index"
+        *ngFor="let mensaje of mensajes; let last = last"
         class="mensaje-wrapper"
-        [ngClass]="[mensaje.tipo, { animate: last }]"
-        [@slideIn]
+        [ngClass]="mensaje.tipo"
       >
         <div class="mensaje-avatar" [title]="mensaje.tipo === 'usuario' ? 'Tú' : 'Asistente'">
           {{ mensaje.tipo === 'usuario' ? '👤' : '🤖' }}
         </div>
         <div class="mensaje-contenido">
           <div class="mensaje-texto">
-            <p [innerHTML]="mensaje.texto"></p>
+            <p style="white-space: pre-line;">{{ mensaje.texto }}</p>
           </div>
           <div class="mensaje-footer">
             <span class="mensaje-hora">{{ mensaje.hora }}</span>
@@ -107,7 +105,7 @@
         </div>
       </div>
 
-      <!-- LOADING INDICATOR - MEJORADO -->
+      <!-- LOADING INDICATOR -->
       <div *ngIf="cargando" class="mensaje-wrapper bot loading-message">
         <div class="mensaje-avatar">🤖</div>
         <div class="mensaje-contenido">
@@ -117,14 +115,14 @@
               <span class="dot"></span>
               <span class="dot"></span>
             </div>
-            <p class="loading-text">El asistente está escribiendo...</p>
+            <p class="loading-text">Escribiendo...</p>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- INPUT AREA - MEJORADA -->
+    <!-- INPUT AREA -->
     <div class="chat-input-wrapper">
       <div class="chat-input">
         <input
@@ -160,7 +158,7 @@
 
   </div>
 
-  <!-- TOOLTIP FLOTANTE (OPCIONAL) -->
+  <!-- TOOLTIP FLOTANTE -->
   <div class="chat-tooltip" *ngIf="mostrarTooltip">
     <p>{{ tooltipTexto }}</p>
   </div>
